@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我们 - Kangan Water</title>
+  
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- 使用GSAP代替Framer Motion -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- 自定义样式 -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- TailwindCSS 配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#e6f7ff',
+              100: '#bae7ff',
+              200: '#91d5ff',
+              300: '#69c0ff',
+              400: '#40a9ff',
+              500: '#1890ff',
+              600: '#096dd9',
+              700: '#0050b3',
+              800: '#003a8c',
+              900: '#002766',
+            },
+            secondary: {
+              50: '#e6fffb',
+              100: '#b5f5ec',
+              200: '#87e8de',
+              300: '#5cdbd3',
+              400: '#36cfc9',
+              500: '#13c2c2',
+              600: '#08979c',
+              700: '#006d75',
+              800: '#00474f',
+              900: '#002329',
+            },
+            accent: {
+              50: '#f0f5ff',
+              100: '#d6e4ff',
+              200: '#adc6ff',
+              300: '#85a5ff',
+              400: '#597ef7',
+              500: '#2f54eb',
+              600: '#1d39c4',
+              700: '#10239e',
+              800: '#061178',
+              900: '#030852',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2">
+        <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">Kangan Water</span>
+      </a>
+      
+      <!-- 桌面导航 -->
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">首页</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">水的类型</a>
+        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">科学研究</a>
+        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">产品展示</a>
+        <a href="about.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors">关于我们</a>
+      </div>
+      
+      <!-- 移动端菜单按钮 -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-primary-500 transition-colors">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端菜单 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">首页</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">水的类型</a>
+        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">科学研究</a>
+        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">产品展示</a>
+        <a href="about.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors py-2">关于我们</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 页面标题 -->
+  <section class="relative bg-gradient-to-r from-secondary-600 to-secondary-700 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-[url('imgs/water_background.svg')] opacity-10"></div>
+    <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">关于 Enagic 和 Kangan Water</h1>
+        <p class="text-xl opacity-90">探索我们的历史、使命和价值观</p>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+  </section>
+
+  <!-- 公司简介 -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Enagic <span class="bg-gradient-to-r from-secondary-500 to-secondary-600 text-transparent bg-clip-text">公司简介</span></h2>
+      <p class="text-lg text-gray-700 mb-8">Enagic是一家总部位于日本冲绳的全球性健康设备制造商，专注于生产高品质的电解水机。公司成立于1974年，拥有超过45年的历史，现已发展成为全球领先的还原水机制造商之一。</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        <div>
+          <h3 class="text-2xl font-bold mb-4">我们的历史</h3>
+          <p class="text-gray-700 mb-4">Enagic公司由大城博成先生于1974年在日本冲绳创立。最初，公司专注于为日本医院和诊所提供工业级水处理设备。</p>
+          <p class="text-gray-700 mb-4">1988年，Enagic开始研发家用电解水机，旨在将医疗级水处理技术带入普通家庭。</p>
+          <p class="text-gray-700">2003年，Enagic开始国际扩张，首先进入北美市场，随后扩展到亚洲、欧洲和其他地区。如今，Enagic在全球拥有25个办事处，产品销往超过80个国家。</p>
+        </div>
+        
+        <div>
+          <h3 class="text-2xl font-bold mb-4">我们的使命</h3>
+          <p class="text-gray-700 mb-4">Enagic的使命是通过提供高品质的还原水技术，帮助人们实现更健康的生活方式。我们致力于：</p>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-circle text-xs text-secondary-500 mt-1.5 mr-2"></i>
+              <span>提供最高品质的电解水机产品</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-circle text-xs text-secondary-500 mt-1.5 mr-2"></i>
+              <span>推广"真水"理念，强调水质对健康的重要性</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-circle text-xs text-secondary-500 mt-1.5 mr-2"></i>
+              <span>支持科学研究，探索还原水的健康潜力</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-circle text-xs text-secondary-500 mt-1.5 mr-2"></i>
+              <span>通过独特的商业模式，创造经济机会</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-lg p-8">
+        <h3 class="text-2xl font-bold mb-6 text-center">核心价值观</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-secondary-100 flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-gem text-2xl text-secondary-600"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-2">品质</h4>
+            <p class="text-gray-700">我们坚持最高的制造标准，确保每台设备都经过严格的质量控制。</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-secondary-100 flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-flask text-2xl text-secondary-600"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-2">创新</h4>
+            <p class="text-gray-700">我们不断投资研发，改进技术，提供更高效、更先进的产品。</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-secondary-100 flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-heart text-2xl text-secondary-600"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-2">诚信</h4>
+            <p class="text-gray-700">我们在所有业务关系中保持透明和诚实，建立长期信任。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kangan Water 介绍 -->
+  <section class="bg-gradient-to-r from-gray-100 to-gray-200 py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center">什么是 <span class="bg-gradient-to-r from-primary-500 to-primary-600 text-transparent bg-clip-text">Kangan Water</span>？</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div class="order-2 md:order-1">
+            <h3 class="text-2xl font-bold mb-6">Kangan Water 的起源</h3>
+            <p class="text-lg text-gray-700 mb-6">"Kangan"一词源自日语，意为"回归原点"或"返璞归真"。Kangan Water（还原水）是指通过Enagic电解水机产生的碱性电解水，具有独特的物理和化学特性。</p>
+            
+            <p class="text-lg text-gray-700 mb-6">Enagic公司创始人大城博成先生在研究水质对健康影响时，受到日本长寿村饮用水特性的启发，开发了能够生产类似特性水的技术。</p>
+            
+            <div class="bg-white rounded-xl p-6 shadow-lg">
+              <h4 class="text-xl font-bold mb-4">Kangan Water 的三大特性</h4>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 mt-1">
+                    <i class="fas fa-check text-primary-600"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-gray-800">碱性pH值</h5>
+                    <p class="text-gray-600">pH值在8.5-9.5之间，有助于平衡体内酸碱平衡。</p>
+                  </div>
+                </li>
+                
+                <li class="flex items-start">
+                  <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 mt-1">
+                    <i class="fas fa-check text-primary-600"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-gray-800">负氧化还原电位(ORP)</h5>
+                    <p class="text-gray-600">具有负ORP值，表明其具有抗氧化特性。</p>
+                  </div>
+                </li>
+                
+                <li class="flex items-start">
+                  <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 mt-1">
+                    <i class="fas fa-check text-primary-600"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-gray-800">小分子团结构</h5>
+                    <p class="text-gray-600">水分子以较小的分子团形式存在，可能有助于更好的水合作用。</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="order-1 md:order-2">
+            <img src="imgs/enagic_homepage.svg" alt="Enagic公司" class="w-full rounded-xl shadow-lg mb-8">
+            <div class="bg-white rounded-xl p-6 shadow-lg">
+              <h4 class="text-xl font-bold mb-4 text-center">Kangan Water 的理念</h4>
+              <p class="text-gray-700">Kangan Water不仅仅是一种产品，更是一种生活理念，强调回归自然、平衡身体和环境友好。这一理念与日本传统的和谐与平衡哲学相呼应。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 全球影响力 -->
+  <section class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-12 text-center">全球<span class="bg-gradient-to-r from-accent-500 to-accent-600 text-transparent bg-clip-text">影响力</span></h2>
+    
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-16">
+        <div>
+          <h3 class="text-2xl font-bold mb-6">国际足迹</h3>
+          <p class="text-lg text-gray-700 mb-6">从日本冲绳的小型工厂发展至今，Enagic已成为一家全球性企业，在全球设有多个办事处和配送中心。</p>
+          
+          <div class="bg-white rounded-xl p-6 shadow-lg mb-8">
+            <h4 class="text-xl font-bold mb-4">全球业务</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-globe-asia text-accent-500 mt-1 mr-2"></i>
+                <span>25个国际办事处</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-globe-americas text-accent-500 mt-1 mr-2"></i>
+                <span>产品销往80多个国家</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-globe-europe text-accent-500 mt-1 mr-2"></i>
+                <span>全球超过100万用户</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-globe-africa text-accent-500 mt-1 mr-2"></i>
+                <span>国际认证和奖项</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-2xl font-bold mb-6">社会责任</h3>
+          <p class="text-lg text-gray-700 mb-6">Enagic不仅关注业务增长，还积极参与社会责任项目，致力于改善全球水资源状况和促进健康教育。</p>
+          
+          <div class="bg-white rounded-xl p-6 shadow-lg">
+            <h4 class="text-xl font-bold mb-4">我们的承诺</h4>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center mr-3 mt-1">
+                  <i class="fas fa-hands-holding-circle text-accent-600"></i>
+                </div>
+                <div>
+                  <h5 class="font-bold text-gray-800">水资源项目</h5>
+                  <p class="text-gray-600">支持全球清洁水资源项目，为缺水地区提供帮助。</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center mr-3 mt-1">
+                  <i class="fas fa-leaf text-accent-600"></i>
+                </div>
+                <div>
+                  <h5 class="font-bold text-gray-800">环保制造</h5>
+                  <p class="text-gray-600">采用环保制造工艺，减少碳足迹和资源消耗。</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center mr-3 mt-1">
+                  <i class="fas fa-graduation-cap text-accent-600"></i>
+                </div>
+                <div>
+                  <h5 class="font-bold text-gray-800">健康教育</h5>
+                  <p class="text-gray-600">提供健康教育资源，提高公众对水质和健康关系的认识。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 数字统计 -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="text-4xl md:text-5xl font-bold text-accent-600 mb-2">45+</div>
+          <p class="text-gray-700 font-medium">年历史</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="text-4xl md:text-5xl font-bold text-accent-600 mb-2">80+</div>
+          <p class="text-gray-700 font-medium">国家销售</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="text-4xl md:text-5xl font-bold text-accent-600 mb-2">1M+</div>
+          <p class="text-gray-700 font-medium">全球用户</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="text-4xl md:text-5xl font-bold text-accent-600 mb-2">25+</div>
+          <p class="text-gray-700 font-medium">国际办事处</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 认证与奖项 -->
+  <section class="bg-gradient-to-r from-gray-100 to-gray-200 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">认证与<span class="bg-gradient-to-r from-primary-500 to-primary-600 text-transparent bg-clip-text">奖项</span></h2>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div class="bg-white rounded-xl shadow-lg p-8">
+            <h3 class="text-2xl font-bold mb-6 text-center">国际认证</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-certificate text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">日本医疗设备认证</h4>
+                  <p class="text-gray-600">Enagic水机在日本获得医疗设备认证，符合严格的医疗标准。</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-certificate text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">ISO 9001认证</h4>
+                  <p class="text-gray-600">Enagic的制造工艺符合国际质量管理标准。</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-certificate text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">ISO 14001认证</h4>
+                  <p class="text-gray-600">Enagic的环境管理系统符合国际标准。</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-certificate text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">WQA金印认证</h4>
+                  <p class="text-gray-600">水质协会认证，确认产品符合严格的水质标准。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-xl shadow-lg p-8">
+            <h3 class="text-2xl font-bold mb-6 text-center">荣誉奖项</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-accent-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-trophy text-accent-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">日本优质产品奖</h4>
+                  <p class="text-gray-600">多次获得日本制造业优质产品奖项。</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-accent-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-trophy text-accent-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">亚洲创新企业奖</h4>
+                  <p class="text-gray-600">因在水处理技术领域的创新而获奖。</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-accent-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-trophy text-accent-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">国际健康产品奖</h4>
+                  <p class="text-gray-600">在多个国际健康产品展会上获奖。</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-accent-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-trophy text-accent-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">环保制造奖</h4>
+                  <p class="text-gray-600">因环保制造工艺而获得国际认可。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+          <h3 class="text-2xl font-bold mb-6">品质承诺</h3>
+          <p class="text-lg text-gray-700 mb-6">Enagic的每一台设备都经过严格的质量控制和测试，确保符合最高标准。我们对产品质量的承诺体现在全面的保修政策和全球服务网络中。</p>
+          <div class="inline-block bg-primary-50 rounded-xl p-4 border border-primary-200">
+            <p class="text-primary-800 font-medium">"质量不是偶然的，而是坚持不懈追求卓越的结果。" - Enagic创始人 大城博成</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系我们 -->
+  <section class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-12 text-center">联系<span class="bg-gradient-to-r from-secondary-500 to-secondary-600 text-transparent bg-clip-text">我们</span></h2>
+    
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="p-8 bg-gradient-to-br from-secondary-600 to-secondary-700 text-white">
+          <h3 class="text-2xl font-bold mb-6">联系信息</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-4 text-secondary-200"></i>
+              <span>总部地址：日本冲绳县那霸市松川1-2-3</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone mt-1 mr-4 text-secondary-200"></i>
+              <span>电话：+81-98-123-4567</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope mt-1 mr-4 text-secondary-200"></i>
+              <span>邮箱：info@kanganwater.com</span>
+            </li>
+          </ul>
+          
+          <h4 class="text-xl font-bold mt-8 mb-4">关注我们</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-white hover:text-secondary-200 transition-colors">
+              <i class="fab fa-facebook-f text-xl"></i>
+            </a>
+            <a href="#" class="text-white hover:text-secondary-200 transition-colors">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <a href="#" class="text-white hover:text-secondary-200 transition-colors">
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="#" class="text-white hover:text-secondary-200 transition-colors">
+              <i class="fab fa-youtube text-xl"></i>
+            </a>
+          </div>
+          
+          <h4 class="text-xl font-bold mt-8 mb-4">营业时间</h4>
+          <p class="mb-2">周一至周五：9:00 - 18:00</p>
+          <p>周六、周日：休息</p>
+        </div>
+        
+        <div class="p-8">
+          <h3 class="text-2xl font-bold mb-6">发送消息</h3>
+          <form>
+            <div class="mb-4">
+              <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+              <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500">
+            </div>
+            
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 font-medium mb-2">邮箱</label>
+              <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500">
+            </div>
+            
+            <div class="mb-4">
+              <label for="subject" class="block text-gray-700 font-medium mb-2">主题</label>
+              <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500">
+            </div>
+            
+            <div class="mb-6">
+              <label for="message" class="block text-gray-700 font-medium mb-2">消息</label>
+              <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500"></textarea>
+            </div>
+            
+            <button type="submit" class="btn-secondary w-full">发送消息</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 号召行动区 -->
+  <section class="bg-gradient-to-r from-secondary-600 to-secondary-700 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">加入 Kangan Water 家族</h2>
+      <p class="text-xl max-w-2xl mx-auto mb-8 opacity-90">探索Enagic还原水的世界，体验健康生活方式。</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="products.html" class="btn-white">查看产品</a>
+        <a href="science.html" class="btn-outline-white">了解科学原理</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="footer-col">
+          <h3 class="text-xl font-bold mb-4">Kangan Water</h3>
+          <p class="text-gray-400">探索Enagic还原水的世界，体验健康生活方式。</p>
+        </div>
+        <div class="footer-col">
+          <h3 class="text-lg font-bold mb-4">快速链接</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+            <li><a href="water-types.html" class="text-gray-400 hover:text-white transition-colors">水的类型</a></li>
+            <li><a href="science.html" class="text-gray-400 hover:text-white transition-colors">科学研究</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">产品展示</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="text-lg font-bold mb-4">资源</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">常见问题</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">使用指南</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">研究文献</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="text-lg font-bold mb-4">联系我们</h3>
+          <ul class="space-y-2">
+            <li class="text-gray-400"><i class="fas fa-envelope mr-2"></i> info@kanganwater.com</li>
+            <li class="text-gray-400"><i class="fas fa-phone mr-2"></i> +1 (123) 456-7890</li>
+          </ul>
+          <div class="mt-4 flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+        <p>&copy; 2023 Kangan Water. 保留所有权利。</p>
+        <p class="mt-2">创作者: @TonyKing</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 自定义JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>产品展示 - Kangan Water</title>
+  
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- 使用GSAP代替Framer Motion -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- 自定义样式 -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- TailwindCSS 配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#e6f7ff',
+              100: '#bae7ff',
+              200: '#91d5ff',
+              300: '#69c0ff',
+              400: '#40a9ff',
+              500: '#1890ff',
+              600: '#096dd9',
+              700: '#0050b3',
+              800: '#003a8c',
+              900: '#002766',
+            },
+            secondary: {
+              50: '#e6fffb',
+              100: '#b5f5ec',
+              200: '#87e8de',
+              300: '#5cdbd3',
+              400: '#36cfc9',
+              500: '#13c2c2',
+              600: '#08979c',
+              700: '#006d75',
+              800: '#00474f',
+              900: '#002329',
+            },
+            accent: {
+              50: '#f0f5ff',
+              100: '#d6e4ff',
+              200: '#adc6ff',
+              300: '#85a5ff',
+              400: '#597ef7',
+              500: '#2f54eb',
+              600: '#1d39c4',
+              700: '#10239e',
+              800: '#061178',
+              900: '#030852',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2">
+        <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">Kangan Water</span>
+      </a>
+      
+      <!-- 桌面导航 -->
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">首页</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">水的类型</a>
+        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">科学研究</a>
+        <a href="products.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors">产品展示</a>
+        <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">关于我们</a>
+      </div>
+      
+      <!-- 移动端菜单按钮 -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-primary-500 transition-colors">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端菜单 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">首页</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">水的类型</a>
+        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">科学研究</a>
+        <a href="products.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors py-2">产品展示</a>
+        <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">关于我们</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 页面标题 -->
+  <section class="relative bg-gradient-to-r from-primary-600 to-primary-700 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-[url('imgs/water_background.svg')] opacity-10"></div>
+    <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Enagic Kangan Water 产品</h1>
+        <p class="text-xl opacity-90">探索Enagic的高品质还原水机系列</p>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+  </section>
+
+  <!-- 产品概述 -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Enagic <span class="bg-gradient-to-r from-primary-500 to-primary-600 text-transparent bg-clip-text">还原水机</span></h2>
+      <p class="text-lg text-gray-700 mb-8">Enagic是全球领先的还原水机制造商，拥有超过45年的历史。所有Enagic产品均在日本制造，采用医疗级不锈钢电极板，通过强大的电解过程生成富氢还原水。</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-4 mx-auto">
+            <i class="fas fa-medal text-2xl text-primary-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">日本制造</h3>
+          <p class="text-gray-700">所有Enagic产品均在日本严格的质量控制下制造，确保最高品质和耐用性。</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-full bg-secondary-100 flex items-center justify-center mb-4 mx-auto">
+            <i class="fas fa-certificate text-2xl text-secondary-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">医疗级认证</h3>
+          <p class="text-gray-700">Enagic水机在日本获得医疗设备认证，采用医疗级不锈钢电极板。</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-full bg-accent-100 flex items-center justify-center mb-4 mx-auto">
+            <i class="fas fa-shield-halved text-2xl text-accent-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">全球保修</h3>
+          <p class="text-gray-700">所有Enagic产品均提供全球保修服务，确保您的投资得到保障。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 旗舰产品：K8 -->
+  <section class="bg-gradient-to-r from-gray-100 to-gray-200 py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center">旗舰产品：<span class="bg-gradient-to-r from-accent-500 to-accent-600 text-transparent bg-clip-text">K8</span></h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div>
+            <img src="imgs/k8_product.svg" alt="K8还原水机" class="w-full rounded-xl shadow-lg">
+          </div>
+          
+          <div>
+            <h3 class="text-2xl font-bold mb-6">K8 - 顶级还原水机</h3>
+            <p class="text-lg text-gray-700 mb-6">K8是Enagic的旗舰产品，采用8块医疗级钛合金电极板，提供最强大的电解性能和最高的氢气浓度。</p>
+            
+            <div class="bg-white rounded-xl p-6 shadow-lg mb-8">
+              <h4 class="text-xl font-bold mb-4">K8主要特点</h4>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <div class="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center mr-3 mt-1">
+                    <i class="fas fa-check text-accent-600"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-gray-800">8块钛合金电极板</h5>
+                    <p class="text-gray-600">提供最强大的电解性能和最高的氢气浓度。</p>
+                  </div>
+                </li>
+                
+                <li class="flex items-start">
+                  <div class="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center mr-3 mt-1">
+                    <i class="fas fa-check text-accent-600"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-gray-800">5种水类型</h5>
+                    <p class="text-gray-600">可生成5种不同pH值的水，满足各种需求。</p>
+                  </div>
+                </li>
+                
+                <li class="flex items-start">
+                  <div class="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center mr-3 mt-1">
+                    <i class="fas fa-check text-accent-600"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-gray-800">自动清洗功能</h5>
+                    <p class="text-gray-600">每次使用后自动清洗电极板，延长使用寿命。</p>
+                  </div>
+                </li>
+                
+                <li class="flex items-start">
+                  <div class="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center mr-3 mt-1">
+                    <i class="fas fa-check text-accent-600"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-gray-800">LCD显示屏</h5>
+                    <p class="text-gray-600">直观显示水的类型和过滤状态。</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="bg-accent-50 rounded-xl p-6 border border-accent-200">
+              <h4 class="text-xl font-bold mb-4 text-accent-800">技术规格</h4>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <p class="font-bold text-gray-700">电极板数量</p>
+                  <p class="text-gray-600">8块</p>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-700">水类型</p>
+                  <p class="text-gray-600">5种</p>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-700">pH范围</p>
+                  <p class="text-gray-600">2.5-11.5</p>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-700">ORP范围</p>
+                  <p class="text-gray-600">+1130mV至-800mV</p>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-700">尺寸</p>
+                  <p class="text-gray-600">345 x 279 x 147 mm</p>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-700">保修</p>
+                  <p class="text-gray-600">5年</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 产品系列 -->
+  <section class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-12 text-center">Enagic <span class="bg-gradient-to-r from-primary-500 to-primary-600 text-transparent bg-clip-text">产品系列</span></h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <!-- SD501 -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div class="h-48 bg-gradient-to-r from-primary-500 to-primary-600 flex items-center justify-center">
+          <h3 class="text-3xl font-bold text-white">SD501</h3>
+        </div>
+        <div class="p-6">
+          <h4 class="text-xl font-bold mb-4">经典型号</h4>
+          <p class="text-gray-700 mb-6">Enagic最畅销的型号，提供稳定的性能和可靠的质量。</p>
+          
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
+              <span>7块钛合金电极板</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
+              <span>5种水类型</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
+              <span>LCD显示屏</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
+              <span>自动清洗功能</span>
+            </li>
+          </ul>
+          
+          <div class="bg-gray-50 rounded-xl p-4 mb-6">
+            <div class="flex justify-between mb-2">
+              <span class="font-bold">pH范围</span>
+              <span>2.5-11.5</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="font-bold">ORP范围</span>
+              <span>+1100mV至-750mV</span>
+            </div>
+          </div>
+          
+          <a href="#" class="btn-primary w-full text-center">了解更多</a>
+        </div>
+      </div>
+      
+      <!-- SD501 Platinum -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div class="h-48 bg-gradient-to-r from-secondary-500 to-secondary-600 flex items-center justify-center">
+          <h3 class="text-3xl font-bold text-white">SD501 Platinum</h3>
+        </div>
+        <div class="p-6">
+          <h4 class="text-xl font-bold mb-4">高级型号</h4>
+          <p class="text-gray-700 mb-6">SD501的升级版，采用铂金涂层外壳，更加耐用和美观。</p>
+          
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+              <span>7块钛合金电极板</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+              <span>5种水类型</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+              <span>铂金涂层外壳</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
+              <span>自动语音提示</span>
+            </li>
+          </ul>
+          
+          <div class="bg-gray-50 rounded-xl p-4 mb-6">
+            <div class="flex justify-between mb-2">
+              <span class="font-bold">pH范围</span>
+              <span>2.5-11.5</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="font-bold">ORP范围</span>
+              <span>+1100mV至-750mV</span>
+            </div>
+          </div>
+          
+          <a href="#" class="btn-secondary w-full text-center">了解更多</a>
+        </div>
+      </div>
+      
+      <!-- JRII -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div class="h-48 bg-gradient-to-r from-accent-500 to-accent-600 flex items-center justify-center">
+          <h3 class="text-3xl font-bold text-white">JRII</h3>
+        </div>
+        <div class="p-6">
+          <h4 class="text-xl font-bold mb-4">入门型号</h4>
+          <p class="text-gray-700 mb-6">紧凑型设计，适合小型家庭或空间有限的环境。</p>
+          
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+              <span>5块钛合金电极板</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+              <span>4种水类型</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+              <span>紧凑型设计</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+              <span>易于安装</span>
+            </li>
+          </ul>
+          
+          <div class="bg-gray-50 rounded-xl p-4 mb-6">
+            <div class="flex justify-between mb-2">
+              <span class="font-bold">pH范围</span>
+              <span>2.5-11.0</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="font-bold">ORP范围</span>
+              <span>+1000mV至-450mV</span>
+            </div>
+          </div>
+          
+          <a href="#" class="btn-accent w-full text-center">了解更多</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 产品比较 -->
+  <section class="bg-gradient-to-r from-gray-100 to-gray-200 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">产品<span class="bg-gradient-to-r from-primary-500 to-primary-600 text-transparent bg-clip-text">比较</span></h2>
+      
+      <div class="max-w-6xl mx-auto overflow-x-auto">
+        <table class="w-full bg-white rounded-xl shadow-lg">
+          <thead>
+            <tr class="bg-gray-800 text-white">
+              <th class="py-4 px-6 text-left">特性</th>
+              <th class="py-4 px-6 text-center">K8</th>
+              <th class="py-4 px-6 text-center">SD501</th>
+              <th class="py-4 px-6 text-center">SD501 Platinum</th>
+              <th class="py-4 px-6 text-center">JRII</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200">
+              <td class="py-4 px-6 font-medium">电极板数量</td>
+              <td class="py-4 px-6 text-center">8块</td>
+              <td class="py-4 px-6 text-center">7块</td>
+              <td class="py-4 px-6 text-center">7块</td>
+              <td class="py-4 px-6 text-center">5块</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="py-4 px-6 font-medium">水类型</td>
+              <td class="py-4 px-6 text-center">5种</td>
+              <td class="py-4 px-6 text-center">5种</td>
+              <td class="py-4 px-6 text-center">5种</td>
+              <td class="py-4 px-6 text-center">4种</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-4 px-6 font-medium">pH范围</td>
+              <td class="py-4 px-6 text-center">2.5-11.5</td>
+              <td class="py-4 px-6 text-center">2.5-11.5</td>
+              <td class="py-4 px-6 text-center">2.5-11.5</td>
+              <td class="py-4 px-6 text-center">2.5-11.0</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="py-4 px-6 font-medium">ORP范围</td>
+              <td class="py-4 px-6 text-center">+1130mV至-800mV</td>
+              <td class="py-4 px-6 text-center">+1100mV至-750mV</td>
+              <td class="py-4 px-6 text-center">+1100mV至-750mV</td>
+              <td class="py-4 px-6 text-center">+1000mV至-450mV</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-4 px-6 font-medium">自动清洗</td>
+              <td class="py-4 px-6 text-center"><i class="fas fa-check text-green-500"></i></td>
+              <td class="py-4 px-6 text-center"><i class="fas fa-check text-green-500"></i></td>
+              <td class="py-4 px-6 text-center"><i class="fas fa-check text-green-500"></i></td>
+              <td class="py-4 px-6 text-center"><i class="fas fa-check text-green-500"></i></td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="py-4 px-6 font-medium">LCD显示屏</td>
+              <td class="py-4 px-6 text-center"><i class="fas fa-check text-green-500"></i></td>
+              <td class="py-4 px-6 text-center"><i class="fas fa-check text-green-500"></i></td>
+              <td class="py-4 px-6 text-center"><i class="fas fa-check text-green-500"></i></td>
+              <td class="py-4 px-6 text-center"><i class="fas fa-xmark text-red-500"></i></td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-4 px-6 font-medium">语音提示</td>
+              <td class="py-4 px-6 text-center"><i class="fas fa-check text-green-500"></i></td>
+              <td class="py-4 px-6 text-center"><i class="fas fa-xmark text-red-500"></i></td>
+              <td class="py-4 px-6 text-center"><i class="fas fa-check text-green-500"></i></td>
+              <td class="py-4 px-6 text-center"><i class="fas fa-xmark text-red-500"></i></td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="py-4 px-6 font-medium">保修期</td>
+              <td class="py-4 px-6 text-center">5年</td>
+              <td class="py-4 px-6 text-center">5年</td>
+              <td class="py-4 px-6 text-center">5年</td>
+              <td class="py-4 px-6 text-center">3年</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-medium">适用人群</td>
+              <td class="py-4 px-6 text-center">大家庭/商业用途</td>
+              <td class="py-4 px-6 text-center">家庭用途</td>
+              <td class="py-4 px-6 text-center">家庭用途</td>
+              <td class="py-4 px-6 text-center">小家庭/个人</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 安装与维护 -->
+  <section class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-12 text-center">安装与<span class="bg-gradient-to-r from-secondary-500 to-secondary-600 text-transparent bg-clip-text">维护</span></h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+      <div>
+        <h3 class="text-2xl font-bold mb-6">简易安装</h3>
+        <p class="text-lg text-gray-700 mb-6">Enagic还原水机设计为易于安装，大多数型号可以在几分钟内完成安装，无需专业工具。</p>
+        
+        <div class="bg-white rounded-xl p-6 shadow-lg mb-8">
+          <h4 class="text-xl font-bold mb-4">安装步骤</h4>
+          <ol class="space-y-4">
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-3 mt-1">
+                <span class="font-bold">1</span>
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-800">连接水源</h5>
+                <p class="text-gray-600">使用提供的分水器连接到水龙头或水管。</p>
+              </div>
+            </li>
+            
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-3 mt-1">
+                <span class="font-bold">2</span>
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-800">放置机器</h5>
+                <p class="text-gray-600">将机器放置在平稳的表面上，确保有足够的空间。</p>
+              </div>
+            </li>
+            
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-3 mt-1">
+                <span class="font-bold">3</span>
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-800">连接电源</h5>
+                <p class="text-gray-600">将电源线插入标准电源插座。</p>
+              </div>
+            </li>
+            
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-3 mt-1">
+                <span class="font-bold">4</span>
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-800">测试运行</h5>
+                <p class="text-gray-600">按照说明书进行初次测试运行和调整。</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="text-2xl font-bold mb-6">简单维护</h3>
+        <p class="text-lg text-gray-700 mb-6">Enagic还原水机设计为低维护需求，但定期维护可以确保最佳性能和延长使用寿命。</p>
+        
+        <div class="bg-white rounded-xl p-6 shadow-lg mb-8">
+          <h4 class="text-xl font-bold mb-4">维护建议</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-secondary-100 flex items-center justify-center mr-3 mt-1">
+                <i class="fas fa-check text-secondary-600"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-800">定期清洗</h5>
+                <p class="text-gray-600">每1-2周使用柠檬酸清洗一次，去除水垢。</p>
+              </div>
+            </li>
+            
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-secondary-100 flex items-center justify-center mr-3 mt-1">
+                <i class="fas fa-check text-secondary-600"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-800">更换滤芯</h5>
+                <p class="text-gray-600">根据使用情况，每6-12个月更换一次内部滤芯。</p>
+              </div>
+            </li>
+            
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-secondary-100 flex items-center justify-center mr-3 mt-1">
+                <i class="fas fa-check text-secondary-600"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-800">定期检查</h5>
+                <p class="text-gray-600">定期检查水管和连接处是否有泄漏或损坏。</p>
+              </div>
+            </li>
+            
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-secondary-100 flex items-center justify-center mr-3 mt-1">
+                <i class="fas fa-check text-secondary-600"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-800">年度检修</h5>
+                <p class="text-gray-600">建议每年由授权技术人员进行一次全面检修。</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 客户评价 -->
+  <section class="bg-gradient-to-r from-accent-50 to-accent-100 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">客户<span class="bg-gradient-to-r from-accent-500 to-accent-600 text-transparent bg-clip-text">评价</span></h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-lg p-8 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mr-4">
+              <span class="text-xl font-bold text-primary-600">L</span>
+            </div>
+            <div>
+              <h4 class="font-bold">李女士</h4>
+              <p class="text-gray-600">K8用户 · 2年</p>
+            </div>
+          </div>
+          
+          <div class="mb-4">
+            <div class="flex text-yellow-400 mb-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h5 class="text-lg font-bold">改变了我的生活方式</h5>
+          </div>
+          
+          <p class="text-gray-700">"购买K8是我做过的最好的健康投资之一。我和家人每天都喝还原水，感觉精力更充沛，皮肤状态也有所改善。机器运行稳定，维护简单，完全值得投资。"</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-lg p-8 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-full bg-secondary-100 flex items-center justify-center mr-4">
+              <span class="text-xl font-bold text-secondary-600">W</span>
+            </div>
+            <div>
+              <h4 class="font-bold">王先生</h4>
+              <p class="text-gray-600">SD501用户 · 3年</p>
+            </div>
+          </div>
+          
+          <div class="mb-4">
+            <div class="flex text-yellow-400 mb-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <h5 class="text-lg font-bold">多功能水机</h5>
+          </div>
+          
+          <p class="text-gray-700">"SD501不仅提供健康的饮用水，还能生成清洁水和美容水。我们用酸性水清洁厨房和浴室，效果非常好。机器已经使用了3年，仍然像新的一样工作。"</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-lg p-8 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-full bg-accent-100 flex items-center justify-center mr-4">
+              <span class="text-xl font-bold text-accent-600">Z</span>
+            </div>
+            <div>
+              <h4 class="font-bold">张女士</h4>
+              <p class="text-gray-600">JRII用户 · 1年</p>
+            </div>
+          </div>
+          
+          <div class="mb-4">
+            <div class="flex text-yellow-400 mb-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <h5 class="text-lg font-bold">小巧实用</h5>
+          </div>
+          
+          <p class="text-gray-700">"JRII非常适合我的小公寓，占用空间小但功能齐全。安装简单，操作方便，价格也比高端型号更实惠。唯一的缺点是水流量比较小，但对于单身使用已经足够了。"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 号召行动区 -->
+  <section class="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">体验Enagic还原水的力量</h2>
+      <p class="text-xl max-w-2xl mx-auto mb-8 opacity-90">选择适合您需求的Enagic还原水机，开启健康生活方式。</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#" class="btn-white">联系我们</a>
+        <a href="science.html" class="btn-outline-white">了解科学原理</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="footer-col">
+          <h3 class="text-xl font-bold mb-4">Kangan Water</h3>
+          <p class="text-gray-400">探索Enagic还原水的世界，体验健康生活方式。</p>
+        </div>
+        <div class="footer-col">
+          <h3 class="text-lg font-bold mb-4">快速链接</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+            <li><a href="water-types.html" class="text-gray-400 hover:text-white transition-colors">水的类型</a></li>
+            <li><a href="science.html" class="text-gray-400 hover:text-white transition-colors">科学研究</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">产品展示</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="text-lg font-bold mb-4">资源</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">常见问题</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">使用指南</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">研究文献</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="text-lg font-bold mb-4">联系我们</h3>
+          <ul class="space-y-2">
+            <li class="text-gray-400"><i class="fas fa-envelope mr-2"></i> info@kanganwater.com</li>
+            <li class="text-gray-400"><i class="fas fa-phone mr-2"></i> +1 (123) 456-7890</li>
+          </ul>
+          <div class="mt-4 flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+        <p>&copy; 2023 Kangan Water. 保留所有权利。</p>
+        <p class="mt-2">创作者: @TonyKing</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 自定义JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>

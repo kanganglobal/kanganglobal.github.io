@@ -1,0 +1,5 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f8f9fa"/>
+  <text x="600" y="400" font-family="Arial" font-size="24" text-anchor="middle" fill="#333">[Water Types Image]</text>
+  <text x="600" y="440" font-family="Arial" font-size="16" text-anchor="middle" fill="#666">This is a placeholder for the water types screenshot</text>
+</svg>
