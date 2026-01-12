@@ -1,82 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Kangen Wellness | Get Your Kangen Water Machine</title>
-    <meta name="description" content="Contact Kangen Wellness for your Kangen Water machine and Ukon products. Expert consultation and support available.">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="images/android-chrome-192x192.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Kangen Water</title>
+  
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/android-chrome-192x192.png">
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#e6f7ff',
+              100: '#bae7ff',
+              200: '#91d5ff',
+              300: '#69c0ff',
+              400: '#40a9ff',
+              500: '#1890ff',
+              600: '#096dd9',
+              700: '#0050b3',
+              800: '#003a8c',
+              900: '#002766',
+            },
+            secondary: {
+              50: '#e6fffb',
+              100: '#b5f5ec',
+              200: '#87e8de',
+              300: '#5cdbd3',
+              400: '#36cfc9',
+              500: '#13c2c2',
+              600: '#08979c',
+              700: '#006d75',
+              800: '#00474f',
+              900: '#002329',
+            },
+            accent: {
+              50: '#f0f5ff',
+              100: '#d6e4ff',
+              200: '#adc6ff',
+              300: '#85a5ff',
+              400: '#597ef7',
+              500: '#2f54eb',
+              600: '#1d39c4',
+              700: '#10239e',
+              800: '#061178',
+              900: '#030852',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html">
-                    <img src="images/logo_mobile_us.svg" alt="Kangen Wellness Logo" class="nav-logo-img" style="height: 40px; width: auto;">
-                </a>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="products.html" class="nav-link">Products</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="contact.html" class="nav-link active">Contact</a>
-                <a href="products.html" class="nav-link shop-btn">SHOP NOW</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+<body class="bg-[#f3e8d8] text-gray-900">
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2">
+        <img src="images/logo_mobile_us.svg" alt="Kangen Water Logo" class="h-10 w-auto">
+      </a>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Home</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Water Types</a>
+        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Science</a>
+        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Products</a>
+        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Ukon</a>
+        <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">About Us</a>
+        <a href="contact.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors">Contact</a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-primary-500 transition-colors">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Home</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Water Types</a>
+        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Science</a>
+        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Products</a>
+        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Ukon</a>
+        <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">About Us</a>
+        <a href="contact.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors py-2">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="container">
-            <div class="page-hero-content">
-                <h1>Contact Us</h1>
-                <p>Ready to transform your health with Kangen Water? Get in touch with our wellness experts today.</p>
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-16 md:py-24 overflow-hidden relative">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Contact <span class="text-primary-400">Us</span></h1>
+          <p class="text-xl opacity-90 mb-8">Ready to transform your health? Get in touch with our wellness experts today. We are dedicated to providing global support for your Kangen Water journey.</p>
+          <div class="flex items-center space-x-4">
+            <div class="flex -space-x-2">
+              <div class="w-10 h-10 rounded-full border-2 border-gray-900 bg-primary-500 flex items-center justify-center text-xs font-bold">JD</div>
+              <div class="w-10 h-10 rounded-full border-2 border-gray-900 bg-secondary-500 flex items-center justify-center text-xs font-bold">AS</div>
+              <div class="w-10 h-10 rounded-full border-2 border-gray-900 bg-accent-500 flex items-center justify-center text-xs font-bold">MK</div>
             </div>
+            <p class="text-sm opacity-80">Our experts are online to help you</p>
+          </div>
         </div>
-    </section>
+        <div class="relative">
+          <div class="absolute -inset-4 bg-primary-500/20 blur-3xl rounded-full"></div>
+          <div class="relative z-10 bg-gray-800 p-4 rounded-2xl shadow-2xl transform hover:rotate-2 transition-transform duration-500">
+            <img src="images/global.png" alt="Global Support" class="w-full h-auto rounded-xl">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#f3e8d8] to-transparent"></div>
+  </section>
 
-    <!-- Contact Section -->
-    <section class="contact-main-section">
-        <div class="container">
-            <div class="contact-grid">
-                <!-- Contact Form -->
-                <div class="contact-form-section">
-                    <h2>Get Your First Kangen Water Machine</h2>
-                    <p>Fill out the form below and one of our wellness experts will contact you to discuss the perfect Kangen solution for your needs.</p>
-                    
-                    <form class="enhanced-contact-form" id="enhanced-contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="interest">I'm Interested In:</label>
-                            <select id="interest" name="interest">\n                                <option value="">Select an option</option>\n                                <option value="kangen-machine">Kangen Water Machine</option>\n                                <option value="ukon-supplements">Ukon Supplements</option>\n                                <option value="ukon-tea">Ukon Tea</option>\n                                <option value="consultation">Health Consultation</option>\n                                <option value="other">Other</option>\n                            </select>\n                        </div>\n                        \n                        <div class="form-group">\n                            <label for="budget">Budget Range (Optional):</label>\n                            <select id="budget" name="budget">\n                                <option value="">Select budget range</option>\n                                <option value="under-1000">Under $1,000</option>\n                                <option value="1000-3000">$1,000 - $3,000</option>\n                                <option value="3000-5000">$3,000 - $5,000</option>\n                                <option value="over-5000">Over $5,000</option>\n                            </select>\n                        </div>\n                        \n                        <div class="form-group">\n                            <label for="preferredContact">Preferred Contact Method:</label>\n                            <div class="radio-group">\n                                <label class="radio-label">\n                                    <input type="radio" name="preferredContact" value="phone" checked>\n                                    <span class="radio-custom"></span>\n                                    Phone Call\n                                </label>\n                                <label class="radio-label">\n                                    <input type="radio" name="preferredContact" value="email">\n                                    <span class="radio-custom"></span>\n                                    Email\n                                </label>\n                                <label class="radio-label">\n                                    <input type="radio" name="preferredContact" value="text">\n                                    <span class="radio-custom"></span>\n                                    Text Message\n                                </label>\n                            </div>\n                        </div>\n                        \n                        <div class="form-group">\n                            <label for="message">Message (Optional):</label>\n                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your health goals or any specific questions you have..."></textarea>\n                        </div>\n                        \n                        <div class="form-group checkbox-group">\n                            <label class="checkbox-label">\n                                <input type="checkbox" id="newsletter" name="newsletter">\n                                <span class="checkbox-custom"></span>\n                                Subscribe to our wellness newsletter for health tips and exclusive offers\n                            </label>\n                        </div>\n                        \n                        <button type="submit" class="btn btn-primary btn-large">Send Message</button>\n                    </form>\n                    \n                    <div class="form-success" id="enhanced-form-success" style="display: none;">\n                        <div class="success-content">\n                            <i class="fas fa-check-circle"></i>\n                            <h3>Thank you for your interest!</h3>\n                            <p>We've received your message and one of our wellness experts will contact you within 24 hours.</p>\n                        </div>\n                    </div>\n                </div>\n                \n                <!-- Contact Information -->\n                <div class="contact-info-section">\n                    <h3>Get In Touch</h3>\n                    <p>Our wellness experts are here to help you find the perfect Kangen solution for your health journey.</p>\n                    \n                    <div class="contact-methods">\n                        <div class="contact-method">\n                            <div class="contact-icon">\n                                <i class="fas fa-phone"></i>\n                            </div>\n                            <div class="contact-details">\n                                <h4>Phone</h4>\n                                <p>+61 XXX XXX XXX</p>\n                                <small>Mon-Fri: 9AM-6PM AEST</small>\n                            </div>\n                        </div>\n                        \n                        <div class="contact-method">\n                            <div class="contact-icon">\n                                <i class="fas fa-envelope"></i>\n                            </div>\n                            <div class="contact-details">\n                                <h4>Email</h4>\n                                <p>info@kangenwellness.com.au</p>\n                                <small>We respond within 24 hours</small>\n                            </div>\n                        </div>\n                        \n                        <div class="contact-method">\n                            <div class="contact-icon">\n                                <i class="fas fa-map-marker-alt"></i>\n                            </div>\n                            <div class="contact-details">\n                                <h4>Location</h4>\n                                <p>Serving all of Australia</p>\n                                <small>Free delivery nationwide</small>\n                            </div>\n                        </div>\n                        \n                        <div class="contact-method">\n                            <div class="contact-icon">\n                                <i class="fas fa-clock"></i>\n                            </div>\n                            <div class="contact-details">\n                                <h4>Response Time</h4>\n                                <p>Within 24 hours</p>\n                                <small>Usually much faster</small>\n                            </div>\n                        </div>\n                    </div>\n                    \n                    <div class="social-contact">\n                        <h4>Follow Us</h4>\n                        <div class="social-links">\n                            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>\n                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>\n                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>\n                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </section>\n\n    <!-- FAQ Section -->\n    <section class="faq-section">\n        <div class="container">\n            <h2 class="section-title">Frequently Asked Questions</h2>\n            <div class="faq-grid">\n                <div class="faq-item">\n                    <div class="faq-question">\n                        <h4>How long does delivery take?</h4>\n                        <i class="fas fa-chevron-down"></i>\n                    </div>\n                    <div class="faq-answer">\n                        <p>We offer free nationwide delivery across Australia. Most orders are delivered within 3-7 business days. Kangen machines come with white-glove delivery and installation support.</p>\n                    </div>\n                </div>\n                \n                <div class="faq-item">\n                    <div class="faq-question">\n                        <h4>Do you offer warranties on Kangen machines?</h4>\n                        <i class="fas fa-chevron-down"></i>\n                    </div>\n                    <div class="faq-answer">\n                        <p>Yes! All Kangen water machines come with a comprehensive 15-year warranty covering parts and service. We also provide ongoing maintenance support.</p>\n                    </div>\n                </div>\n                \n                <div class="faq-item">\n                    <div class="faq-question">\n                        <h4>Can I try Kangen water before purchasing?</h4>\n                        <i class="fas fa-chevron-down"></i>\n                    </div>\n                    <div class="faq-answer">\n                        <p>Absolutely! We offer free water samples and demonstrations. Contact us to schedule a consultation where you can experience Kangen water firsthand.</p>\n                    </div>\n                </div>\n                \n                <div class="faq-item">\n                    <div class="faq-question">\n                        <h4>Are there financing options available?</h4>\n                        <i class="fas fa-chevron-down"></i>\n                    </div>\n                    <div class="faq-answer">\n                        <p>Yes, we offer flexible payment plans to make Kangen machines more accessible. Contact us to discuss financing options that work for your budget.</p>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </section>\n\n    <!-- CTA Section -->\n    <section class="cta-section">\n        <div class="container">\n            <div class="cta-content">\n                <h2>Ready to Start Your Wellness Journey?</h2>\n                <p>Join thousands of satisfied customers who have transformed their health with Kangen Water and Ukon products.</p>\n                <div class="cta-buttons">\n                    <a href="products.html" class="btn btn-primary">View Products</a>\n                    <a href="about.html" class="btn btn-outline">Learn More</a>\n                </div>\n            </div>\n        </div>\n    </section>\n\n    <!-- Footer -->\n    <footer class="footer">\n        <div class="container">\n            <div class="footer-content">\n                <div class="footer-section">\n                    <h3>Kangen Wellness</h3>\n                    <p>Experience the power of Kangen Water and Ukon for better health and wellness.</p>\n                </div>\n                <div class="footer-section">\n                    <h4>Quick Links</h4>\n                    <ul>\n                        <li><a href="index.html">Home</a></li>\n                        <li><a href="products.html">Products</a></li>\n                        <li><a href="about.html">About</a></li>\n                        <li><a href="blog.html">Blog</a></li>\n                    </ul>\n                </div>\n                <div class="footer-section">\n                    <h4>Contact</h4>\n                    <p>Email: info@kangenwellness.com.au</p>\n                    <p>Phone: +61 XXX XXX XXX</p>\n                </div>\n                <div class="footer-section">\n                    <h4>Follow Us</h4>\n                    <div class="social-links">\n                        <a href="#"><i class="fab fa-facebook"></i></a>\n                        <a href="#"><i class="fab fa-instagram"></i></a>\n                        <a href="#"><i class="fab fa-twitter"></i></a>\n                    </div>\n                </div>\n            </div>\n            <div class="footer-bottom">\n                <p>&copy; 2024 Kangen Wellness. All rights reserved.</p>\n            </div>\n        </div>\n    </footer>\n\n    <script src="main.js"></script>\n    <script src="contact.js"></script>\n</body>\n</html>
+  <!-- Contact Section -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        
+        <!-- Contact Form -->
+        <div class="rounded-xl shadow-lg p-8">
+          <h2 class="text-2xl font-bold mb-6 text-gray-800">Get Your Kangen Machine</h2>
+          <p class="text-gray-600 mb-8">Fill out the form below and we will contact you to discuss the perfect solution for your needs.</p>
+          
+          <form id="contactForm" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors">
+              </div>
+              <div>
+                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors">
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors">
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors">
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">I'm Interested In:</label>
+                <select id="interest" name="interest" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors bg-white">
+                  <option value="">Select an option</option>
+                  <option value="kangen-machine">Kangen Water Machine</option>
+                  <option value="ukon-supplements">Ukon Supplements</option>
+                  <option value="business">Business Opportunity</option>
+                  <option value="consultation">Health Consultation</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="budget" class="block text-sm font-medium text-gray-700 mb-1">Budget Range:</label>
+                <select id="budget" name="budget" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors bg-white">
+                  <option value="">Select budget range</option>
+                  <option value="under-1000">Under $1,000</option>
+                  <option value="1000-3000">$1,000 - $3,000</option>
+                  <option value="3000-5000">$3,000 - $5,000</option>
+                  <option value="over-5000">Over $5,000</option>
+                </select>
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Contact Method:</label>
+              <div class="flex space-x-6">
+                <label class="flex items-center space-x-2 cursor-pointer">
+                  <input type="radio" name="preferredContact" value="phone" checked class="text-primary-600 focus:ring-primary-500 h-4 w-4">
+                  <span class="text-gray-700">Phone Call</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer">
+                  <input type="radio" name="preferredContact" value="email" class="text-primary-600 focus:ring-primary-500 h-4 w-4">
+                  <span class="text-gray-700">Email</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer">
+                  <input type="radio" name="preferredContact" value="text" class="text-primary-600 focus:ring-primary-500 h-4 w-4">
+                  <span class="text-gray-700">Text Message</span>
+                </label>
+              </div>
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+              <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"></textarea>
+            </div>
+            
+            <button type="submit" class="w-full bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold py-3 px-6 rounded-lg hover:from-primary-700 hover:to-secondary-700 transition-all transform hover:-translate-y-0.5 shadow-lg">
+              Send Message
+            </button>
+          </form>
+        </div>
+        
+        <!-- Contact Info & FAQ -->
+        <div class="space-y-8">
+          <div class="rounded-xl shadow-lg p-8">
+            <h3 class="text-xl font-bold mb-6 text-gray-800">Contact Information</h3>
+            <ul class="space-y-6">
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 shrink-0">
+                  <i class="fas fa-envelope text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800 mb-1">Email Us</h4>
+                  <p class="text-gray-600">info@kanganglobal.com</p>
+                  <p class="text-sm text-gray-500 mt-1">We typically reply within 24 hours.</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 shrink-0">
+                  <i class="fas fa-phone-alt text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800 mb-1">Call Us</h4>
+                  <p class="text-gray-600">+1 (555) 123-4567</p>
+                  <p class="text-sm text-gray-500 mt-1">Mon-Fri: 9am - 6pm EST</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 shrink-0">
+                  <i class="fas fa-map-marker-alt text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800 mb-1">Location</h4>
+                  <p class="text-gray-600">Global Headquarters</p>
+                  <p class="text-gray-600">Okinawa, Japan</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="rounded-xl shadow-lg p-8">
+            <h3 class="text-xl font-bold mb-6 text-gray-800">Why Choose Kangan?</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary-500 mt-1 mr-3"></i>
+                <span class="text-gray-700">45+ Years of Proven History</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary-500 mt-1 mr-3"></i>
+                <span class="text-gray-700">Medical Grade Certification (Japan)</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary-500 mt-1 mr-3"></i>
+                <span class="text-gray-700">5-Year Warranty on Machines</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary-500 mt-1 mr-3"></i>
+                <span class="text-gray-700">Global Support Network</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>

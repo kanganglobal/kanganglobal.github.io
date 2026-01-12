@@ -1,242 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Kangen Wellness | Ukon</title>
-    <meta name="description" content="Learn about Kangen Wellness and our mission to provide premium Kangen Water machines and Ukon products for optimal health and wellness.">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="images/android-chrome-192x192.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Kangen Water</title>
+  
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/android-chrome-192x192.png">
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#e6f7ff',
+              100: '#bae7ff',
+              200: '#91d5ff',
+              300: '#69c0ff',
+              400: '#40a9ff',
+              500: '#1890ff',
+              600: '#096dd9',
+              700: '#0050b3',
+              800: '#003a8c',
+              900: '#002766',
+            },
+            secondary: {
+              50: '#e6fffb',
+              100: '#b5f5ec',
+              200: '#87e8de',
+              300: '#5cdbd3',
+              400: '#36cfc9',
+              500: '#13c2c2',
+              600: '#08979c',
+              700: '#006d75',
+              800: '#00474f',
+              900: '#002329',
+            },
+            accent: {
+              50: '#f0f5ff',
+              100: '#d6e4ff',
+              200: '#adc6ff',
+              300: '#85a5ff',
+              400: '#597ef7',
+              500: '#2f54eb',
+              600: '#1d39c4',
+              700: '#10239e',
+              800: '#061178',
+              900: '#030852',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html">
-                    <img src="images/logo_mobile_us.svg" alt="Kangen Wellness Logo" class="nav-logo-img" style="height: 40px; width: auto;">
-                </a>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="products.html" class="nav-link">Products</a>
-                <a href="about.html" class="nav-link active">About</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="products.html" class="nav-link shop-btn">SHOP NOW</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+<body class="bg-[#f3e8d8] text-gray-900">
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2">
+        <img src="images/logo_mobile_us.svg" alt="Kangen Water Logo" class="h-10 w-auto">
+      </a>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Home</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Water Types</a>
+        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Science</a>
+        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Products</a>
+        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Ukon</a>
+        <a href="about.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors">About Us</a>
+        <a href="contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Contact</a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-primary-500 transition-colors">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Home</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Water Types</a>
+        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Science</a>
+        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Products</a>
+        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Ukon</a>
+        <a href="about.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors py-2">About Us</a>
+        <a href="contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="page-hero">
-        <div class="container">
-            <div class="page-hero-content">
-                <h1>About Kangen Wellness</h1>
-                <p>Discover our journey in bringing you the finest Kangen Water and Ukon products for optimal health and wellness.</p>
-            </div>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="relative bg-gray-900 text-white overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="images/glass.jpg" alt="Background" class="w-full h-full object-cover opacity-40">
+      <div class="absolute inset-0 bg-gradient-to-r from-secondary-600/30 to-secondary-700/30"></div>
+    </div>
+    <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">About Enagic & Kangen Water</h1>
+        <p class="text-xl opacity-90">Explore our history, mission, and values.</p>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#f3e8d8] to-transparent"></div>
+  </section>
 
-    <!-- Our Story Section -->
-    <section class="story-section">
-        <div class="container">
-            <div class="story-content">
-                <div class="story-text">
-                    <h2>Our Story</h2>
-                    <p>
-                        Kangen Wellness was founded with a simple yet powerful mission: to make premium health and wellness 
-                        products accessible to everyone seeking a healthier lifestyle. Our journey began with the discovery 
-                        of Kangen Water technology and the incredible benefits of Ukon (turmeric) from Okinawa, Japan.
-                    </p>
-                    <p>
-                        We believe that true wellness comes from nature's finest offerings, and we're committed to bringing 
-                        you products that have been trusted for generations. From our advanced Kangen Water machines to our 
-                        premium Ukon supplements and teas, every product is carefully selected and tested to ensure the 
-                        highest quality standards.
-                    </p>
-                </div>
-                <div class="story-image">
-                    <img src="images/about-story.jpg" alt="Kangen Wellness story" class="story-img">
-                </div>
-            </div>
+  <!-- Company Profile -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Enagic <span class="bg-gradient-to-r from-secondary-500 to-secondary-600 text-transparent bg-clip-text">Company Profile</span></h2>
+      <p class="text-lg text-gray-700 mb-8">Enagic is a global health equipment manufacturer based in Okinawa, Japan, specializing in high-quality water ionization systems. Founded in 1974, with over 45 years of history, it has grown to become one of the world's leading manufacturers of alkaline ionizers.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Our History</h3>
+          <p class="text-gray-700 mb-4">Enagic was founded by Hironari Oshiro in 1974 in Okinawa, Japan. Initially, the company focused on providing industrial-grade water processing equipment for Japanese hospitals and clinics.</p>
+          <p class="text-gray-700 mb-4">In 1988, Enagic began developing home water ionizers, aiming to bring medical-grade water technology into ordinary households.</p>
+          <p class="text-gray-700">In 2003, Enagic started its international expansion, first entering the North American market, then expanding to Asia, Europe, and other regions. Today, Enagic has 25 offices worldwide, with products sold in over 80 countries.</p>
         </div>
-    </section>
-
-    <!-- Mission & Values Section -->
-    <section class="values-section">
-        <div class="container">
-            <h2 class="section-title">Our Mission & Values</h2>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Health First</h3>
-                    <p>We prioritize your health and well-being above all else, ensuring every product meets the highest standards of purity and effectiveness.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Natural Excellence</h3>
-                    <p>We harness the power of nature's finest ingredients, particularly focusing on traditional wisdom and modern science.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Quality Assurance</h3>
-                    <p>Every product undergoes rigorous testing and quality control to ensure you receive only the best wellness solutions.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Community Focus</h3>
-                    <p>We're building a community of health-conscious individuals committed to supporting each other's wellness journey.</p>
-                </div>
-            </div>
+        
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+          <p class="text-gray-700 mb-4">Enagic's mission is to help people achieve a healthier lifestyle by providing high-quality Kangen Water technology. We are committed to:</p>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-circle text-xs text-secondary-500 mt-1.5 mr-2"></i>
+              <span>Providing the highest quality water ionizer products.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-circle text-xs text-secondary-500 mt-1.5 mr-2"></i>
+              <span>Promoting the concept of "True Health" and the importance of water quality.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-circle text-xs text-secondary-500 mt-1.5 mr-2"></i>
+              <span>Supporting scientific research to explore the health potential of Kangen Water.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-circle text-xs text-secondary-500 mt-1.5 mr-2"></i>
+              <span>Creating economic opportunities through a unique business model.</span>
+            </li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Kangen Water Section -->
-    <section class="kangen-info-section">
-        <div class="container">
-            <div class="kangen-info-content">
-                <div class="kangen-info-text">
-                    <h2>Why Kangen Water?</h2>
-                    <p>
-                        Kangen Water is not just any water—it's a revolutionary approach to hydration that can transform 
-                        your health from the inside out. Our Kangen Water machines produce ionized alkaline water that:
-                    </p>
-                    <ul class="benefits-list">
-                        <li><i class="fas fa-check"></i> Provides superior hydration at the cellular level</li>
-                        <li><i class="fas fa-check"></i> Contains powerful antioxidant properties</li>
-                        <li><i class="fas fa-check"></i> Helps balance your body's pH levels</li>
-                        <li><i class="fas fa-check"></i> Supports natural detoxification processes</li>
-                        <li><i class="fas fa-check"></i> Enhances energy and vitality</li>
-                    </ul>
-                    <p>
-                        With over 40 years of research and development, Kangen Water technology represents the pinnacle 
-                        of water ionization science, trusted by healthcare professionals worldwide.
-                    </p>
-                </div>
-                <div class="kangen-info-image">
-                    <img src="images/kangen-water-benefits.jpg" alt="Kangen Water Benefits" class="benefits-img">
-                </div>
+      </div>
+      
+      <div class="rounded-xl shadow-lg p-8">
+        <h3 class="text-2xl font-bold mb-6 text-center">Core Values</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-secondary-100 flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-gem text-2xl text-secondary-600"></i>
             </div>
+            <h4 class="text-xl font-bold mb-2">Quality</h4>
+            <p class="text-gray-700">We adhere to the highest manufacturing standards, ensuring every device undergoes strict quality control.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-secondary-100 flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-flask text-2xl text-secondary-600"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-2">Innovation</h4>
+            <p class="text-gray-700">We continuously invest in R&D to improve technology and provide more efficient, advanced products.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-secondary-100 flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-heart text-2xl text-secondary-600"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-2">Integrity</h4>
+            <p class="text-gray-700">We maintain transparency and honesty in all business relationships, building long-term trust.</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Ukon Section -->
-    <section class="ukon-info-section">
-        <div class="container">
-            <div class="ukon-info-content">
-                <div class="ukon-info-image">
-                    <img src="images/ukon-okinawa.jpg" alt="Ukon from Okinawa" class="ukon-img">
-                </div>
-                <div class="ukon-info-text">
-                    <h2>The Power of Ukon</h2>
-                    <p>
-                        Ukon, a wild turmeric native to Okinawa, Japan, has been treasured for centuries for its 
-                        remarkable health-promoting properties. Our Ukon products are sourced directly from the 
-                        pristine environment of Okinawa, where the plant grows naturally in mineral-rich soil.
-                    </p>
-                    <h3>Why Okinawan Ukon?</h3>
-                    <ul class="benefits-list">
-                        <li><i class="fas fa-check"></i> Higher concentration of active compounds than regular turmeric</li>
-                        <li><i class="fas fa-check"></i> Grown in pollution-free, volcanic soil</li>
-                        <li><i class="fas fa-check"></i> Traditional cultivation methods preserved for generations</li>
-                        <li><i class="fas fa-check"></i> No pesticides or artificial additives</li>
-                        <li><i class="fas fa-check"></i> Harvested at peak potency</li>
-                    </ul>
-                    <p>
-                        The people of Okinawa are famous for their longevity and vitality, and Ukon has been a cornerstone 
-                        of their traditional wellness practices for centuries.
-                    </p>
-                </div>
+  <!-- Kangan Water Intro -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center">What is <span class="bg-gradient-to-r from-primary-500 to-primary-600 text-transparent bg-clip-text">Kangan Water</span>?</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div class="order-2 md:order-1">
+            <h3 class="text-2xl font-bold mb-6">Origin of Kangen Water</h3>
+            <p class="text-lg text-gray-700 mb-6">"Kangen" is a Japanese term meaning "Return to Origin". Kangen Water refers to alkaline electrolyzed water produced by Enagic's machines, possessing unique physical and chemical properties.</p>
+            
+            <p class="text-lg text-gray-700 mb-6">Enagic founder Hironari Oshiro was inspired by the properties of drinking water in Japanese longevity villages while researching the impact of water quality on health, leading to the development of technology capable of producing water with similar characteristics.</p>
+            
+            <div class="rounded-xl p-6 shadow-lg">
+              <h4 class="text-xl font-bold mb-4">Three Properties of Kangen Water</h4>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 mt-1">
+                    <i class="fas fa-check text-primary-600"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-gray-800">Alkaline pH</h5>
+                    <p class="text-gray-600">pH ranges from 8.5-9.5, helping to balance the body's acidity.</p>
+                  </div>
+                </li>
+                
+                <li class="flex items-start">
+                  <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 mt-1">
+                    <i class="fas fa-check text-primary-600"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-gray-800">Negative ORP (Antioxidant)</h5>
+                    <p class="text-gray-600">Has a negative Oxidation-Reduction Potential (ORP), indicating antioxidant properties.</p>
+                  </div>
+                </li>
+                
+                <li class="flex items-start">
+                  <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 mt-1">
+                    <i class="fas fa-check text-primary-600"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-gray-800">Micro-Clustering</h5>
+                    <p class="text-gray-600">Water molecules exist in smaller clusters, which may aid in better hydration.</p>
+                  </div>
+                </li>
+              </ul>
             </div>
+          </div>
+          
+          <div class="order-1 md:order-2">
+            <img src="images/Hironari-Oshiro.jpg" alt="Enagic Company" class="w-full rounded-xl shadow-lg mb-8">
+            <div class="rounded-xl p-6 shadow-lg">
+              <h4 class="text-xl font-bold mb-4 text-center">Kangen Water Philosophy</h4>
+              <p class="text-gray-700">Kangen Water is not just a product, but a lifestyle philosophy emphasizing a return to nature, bodily balance, and environmental friendliness. This philosophy resonates with the traditional Japanese philosophy of harmony and balance.</p>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Team Section -->
-    <section class="team-section">
-        <div class="container">
-            <h2 class="section-title">Our Commitment to You</h2>
-            <div class="commitment-content">
-                <p class="commitment-text">
-                    At Kangen Wellness, we're more than just a company—we're your partners in health. Our dedicated team 
-                    of wellness experts, researchers, and customer care professionals work tirelessly to ensure you have 
-                    access to the best products and support on your wellness journey.
-                </p>
-                <p class="commitment-text">
-                    We provide comprehensive education about our products, personalized recommendations, and ongoing support 
-                    to help you achieve your health goals. Your success is our success, and we're committed to being with 
-                    you every step of the way.
-                </p>
-            </div>
+  <!-- Global Impact -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">Global <span class="bg-gradient-to-r from-accent-500 to-accent-600 text-transparent bg-clip-text">Impact</span></h2>
+    
+    <div class="max-w-6xl mx-auto">
+      <!-- International Footprint & Map -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
+        <div class="order-2 md:order-1">
+          <h3 class="text-2xl font-bold mb-6">International Footprint</h3>
+          <p class="text-lg text-gray-700 mb-6">From a small factory in Okinawa, Enagic has grown into a global enterprise with multiple offices and distribution centers worldwide.</p>
+          
+          <div class="rounded-xl p-6 shadow-lg">
+            <h4 class="text-xl font-bold mb-4">Global Presence</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-globe-asia text-accent-500 mt-1 mr-2"></i>
+                <span>25 International Offices</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-globe-americas text-accent-500 mt-1 mr-2"></i>
+                <span>Products sold in 80+ countries</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-globe-europe text-accent-500 mt-1 mr-2"></i>
+                <span>Over 1 Million users worldwide</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-globe-africa text-accent-500 mt-1 mr-2"></i>
+                <span>International certifications and awards</span>
+              </li>
+            </ul>
+          </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Health?</h2>
-                <p>Join thousands of satisfied customers who have experienced the life-changing benefits of Kangen Water and Ukon products.</p>
-                <div class="cta-buttons">
-                    <a href="products.html" class="btn btn-primary">Shop Products</a>
-                    <a href="contact.html" class="btn btn-outline">Contact Us</a>
-                </div>
-            </div>
+        <div class="order-1 md:order-2">
+          <div class="bg-gray-800 p-4 rounded-2xl shadow-2xl">
+            <img src="images/global.png" alt="Global Impact Map" class="w-full h-auto rounded-xl transform hover:scale-105 transition-transform duration-500">
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Kangen Wellness</h3>
-                    <p>Experience the power of Kangen Water and Ukon for better health and wellness.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: info@kangenwellness.com.au</p>
-                    <p>Phone: +61 XXX XXX XXX</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Kangen Wellness. All rights reserved.</p>
-            </div>
+      <!-- Social Responsibility -->
+      <div class="mb-20">
+        <div class="max-w-4xl mx-auto text-center mb-12">
+          <h3 class="text-2xl font-bold mb-6">Social Responsibility</h3>
+          <p class="text-lg text-gray-700">Enagic focuses not only on business growth but also actively participates in CSR projects, dedicated to improving global water conditions and promoting health education.</p>
         </div>
-    </footer>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="rounded-xl p-6 shadow-lg">
+            <div class="w-12 h-12 rounded-full bg-accent-100 flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-hands-holding-circle text-xl text-accent-600"></i>
+            </div>
+            <h5 class="font-bold text-gray-800 text-lg mb-2 text-center">Water Projects</h5>
+            <p class="text-gray-600 text-center">Supporting water resource protection and clean water supply projects in developing countries.</p>
+          </div>
+          
+          <div class="rounded-xl p-6 shadow-lg">
+            <div class="w-12 h-12 rounded-full bg-accent-100 flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-heartbeat text-xl text-accent-600"></i>
+            </div>
+            <h5 class="font-bold text-gray-800 text-lg mb-2 text-center">Health Education</h5>
+            <p class="text-gray-600 text-center">Popularizing health knowledge through seminars and community activities.</p>
+          </div>
+          
+          <div class="rounded-xl p-6 shadow-lg">
+            <div class="w-12 h-12 rounded-full bg-accent-100 flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-leaf text-xl text-accent-600"></i>
+            </div>
+            <h5 class="font-bold text-gray-800 text-lg mb-2 text-center">Environmental Sustainability</h5>
+            <p class="text-gray-600 text-center">Promoting reducing plastic bottle use and advocating for eco-friendly lifestyles.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Statistics -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="text-4xl md:text-5xl font-bold text-accent-600 mb-2">45+</div>
+          <p class="text-gray-700 font-medium">Years History</p>
+        </div>
+        
+        <div class="rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="text-4xl md:text-5xl font-bold text-accent-600 mb-2">80+</div>
+          <p class="text-gray-700 font-medium">Countries</p>
+        </div>
+        
+        <div class="rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="text-4xl md:text-5xl font-bold text-accent-600 mb-2">1M+</div>
+          <p class="text-gray-700 font-medium">Global Users</p>
+        </div>
+        
+        <div class="rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="text-4xl md:text-5xl font-bold text-accent-600 mb-2">25+</div>
+          <p class="text-gray-700 font-medium">Intl. Offices</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="main.js"></script>
+  <!-- Certifications -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">Certifications & <span class="bg-gradient-to-r from-primary-500 to-primary-600 text-transparent bg-clip-text">Awards</span></h2>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div class="rounded-xl shadow-lg p-8">
+            <h3 class="text-2xl font-bold mb-6 text-center">International Certifications</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-certificate text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">Medical Device Certification</h4>
+                  <p class="text-gray-600">Enagic machines are certified as medical devices in Japan, meeting strict medical standards.</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-certificate text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">ISO 9001 Certification</h4>
+                  <p class="text-gray-600">Enagic's manufacturing processes comply with international quality management standards.</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-certificate text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">ISO 14001 Certification</h4>
+                  <p class="text-gray-600">Enagic's environmental management system complies with international standards.</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-certificate text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">WQA Gold Seal</h4>
+                  <p class="text-gray-600">Water Quality Association certification, confirming products meet strict water quality standards.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="rounded-xl shadow-lg p-8">
+            <h3 class="text-2xl font-bold mb-6 text-center">Awards & Recognition</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-trophy text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">Direct Selling Association</h4>
+                  <p class="text-gray-600">Member in good standing, committed to ethical business practices.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-trophy text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">Environmental Awards</h4>
+                  <p class="text-gray-600">Recognized for sustainable manufacturing and eco-friendly practices.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="main.js"></script>
 </body>
 </html>

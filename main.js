@@ -1,265 +1,138 @@
-// DOM Elements
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-const contactForm = document.getElementById('contact-form');
-const formSuccess = document.getElementById('form-success');
+// 等待DOM加载完成
+document.addEventListener('DOMContentLoaded', function() {
+  // 移动端菜单切换
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+  
+  // 使用GSAP设置动画
+  setupGSAPAnimations();
+});
 
-// Mobile Navigation Toggle
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
+// GSAP已经替代了这些函数，不再需要旧的滚动动画初始化函数
+
+// 使用GSAP设置动画效果
+function setupGSAPAnimations() {
+  // 检查GSAP是否加载
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    // 注册ScrollTrigger插件
+    gsap.registerPlugin(ScrollTrigger);
     
-    // Animate hamburger bars
-    hamburger.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-    });
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+    // 设置便当盒卡片动画
+    gsap.utils.toArray('.bento-card').forEach((card, i) => {
+      gsap.fromTo(card, 
+        { y: 50, opacity: 0 }, 
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: i * 0.1,
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 80%',
+          }
         }
+      );
     });
+    
+    // 设置特性内容动画
+    gsap.utils.toArray('.feature-content').forEach((content) => {
+      gsap.fromTo(content, 
+        { x: -50, opacity: 0 }, 
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: content,
+            start: 'top 75%',
+          }
+        }
+      );
+    });
+    
+    // 设置特性图片动画
+    gsap.utils.toArray('.feature-image').forEach((image) => {
+      gsap.fromTo(image, 
+        { x: 50, opacity: 0 }, 
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: image,
+            start: 'top 75%',
+          }
+        }
+      );
+    });
+    
+    // 设置统计数字动画
+    gsap.utils.toArray('.stat-item').forEach((stat, i) => {
+      gsap.fromTo(stat, 
+        { y: 30, opacity: 0 }, 
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          delay: i * 0.1,
+          scrollTrigger: {
+            trigger: stat,
+            start: 'top 85%',
+          }
+        }
+      );
+    });
+    
+    console.log('GSAP animations setup complete');
+  }
+}
+
+// 页面滚动处理
+window.addEventListener('scroll', function() {
+  // 获取滚动位置
+  const scrollPosition = window.scrollY;
+  
+  // 导航栏滚动效果
+  const nav = document.querySelector('nav');
+  if (nav) {
+    if (scrollPosition > 50) {
+      nav.classList.add('bg-white', 'shadow-md');
+      nav.classList.remove('bg-transparent');
+    } else {
+      if (window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/')) {
+        nav.classList.remove('bg-white', 'shadow-md');
+        nav.classList.add('bg-transparent');
+      }
+    }
+  }
+  
+  // 视差滚动效果
+  const parallaxElements = document.querySelectorAll('.parallax');
+  parallaxElements.forEach(element => {
+    const speed = element.getAttribute('data-speed') || 0.5;
+    element.style.transform = `translateY(${scrollPosition * speed}px)`;
+  });
 });
 
-// Contact Form Handling
-contactForm.addEventListener('submit', function(e) {
+// 添加平滑滚动到锚点
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
     e.preventDefault();
     
-    // Get form data
-    const formData = new FormData(this);
-    const firstName = formData.get('firstName');
-    const lastName = formData.get('lastName');
-    const email = formData.get('email');
-    const phone = formData.get('phone');
-    const message = formData.get('message');
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
     
-    // Basic validation
-    if (!firstName || !lastName || !email || !phone) {
-        alert('Please fill in all required fields.');
-        return;
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 100, // 减去导航栏高度
+        behavior: 'smooth'
+      });
     }
-    
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-    
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-        // Hide form and show success message
-        contactForm.style.display = 'none';
-        formSuccess.style.display = 'block';
-        
-        // Reset form after 3 seconds
-        setTimeout(() => {
-            contactForm.style.display = 'block';
-            formSuccess.style.display = 'none';
-            contactForm.reset();
-        }, 3000);
-    }, 1000);
-});
-
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    }
-});
-
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const elementsToAnimate = document.querySelectorAll(
-        '.hero-content, .balance-text, .ukon-text, .product-card, .blog-card, .contact-content'
-    );
-    
-    elementsToAnimate.forEach(el => {
-        observer.observe(el);
-    });
-});
-
-// Product Cart Functionality (placeholder)
-document.querySelectorAll('.product-card .btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Get product name
-        const productCard = this.closest('.product-card');
-        const productName = productCard.querySelector('h3').textContent;
-        
-        // Simulate add to cart
-        this.textContent = 'ADDED!';
-        this.style.backgroundColor = '#28a745';
-        
-        // Reset button after 2 seconds
-        setTimeout(() => {
-            this.textContent = 'ADD TO CART';
-            this.style.backgroundColor = '';
-        }, 2000);
-        
-        // Show notification (you can replace this with a more sophisticated notification system)
-        showNotification(`${productName} added to cart!`);
-    });
-});
-
-// Simple notification system
-function showNotification(message) {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.textContent = message;
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: #28a745;
-        color: white;
-        padding: 15px 20px;
-        border-radius: 5px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        z-index: 1001;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Remove after 3 seconds
-    setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 3000);
-}
-
-// Lazy loading for images
-document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
-});
-
-// Search functionality (placeholder)
-function initSearch() {
-    const searchInput = document.getElementById('search-input');
-    const searchResults = document.getElementById('search-results');
-    
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            
-            if (query.length < 2) {
-                searchResults.innerHTML = '';
-                return;
-            }
-            
-            // Simulate search results (replace with actual search logic)
-            const mockResults = [
-                { title: 'Kangen Water Benefits', url: '#' },
-                { title: 'Ukon Tea Properties', url: '#' },
-                { title: 'Water Machine Installation', url: '#' }
-            ].filter(item => item.title.toLowerCase().includes(query));
-            
-            displaySearchResults(mockResults);
-        });
-    }
-}
-
-function displaySearchResults(results) {
-    const searchResults = document.getElementById('search-results');
-    
-    if (results.length === 0) {
-        searchResults.innerHTML = '<p>No results found</p>';
-        return;
-    }
-    
-    const resultsHTML = results.map(result => `
-        <div class="search-result-item">
-            <a href="${result.url}">${result.title}</a>
-        </div>
-    `).join('');
-    
-    searchResults.innerHTML = resultsHTML;
-}
-
-// Initialize features when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    initSearch();
-    
-    // Add loading class to body
-    document.body.classList.add('loaded');
-});
-
-// Handle window resize
-window.addEventListener('resize', () => {
-    // Close mobile menu on resize
-    if (window.innerWidth > 768) {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-    }
-});
-
-// Preloader (if needed)
-window.addEventListener('load', () => {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 300);
-    }
+  });
 });
