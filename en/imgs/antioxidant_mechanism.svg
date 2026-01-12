@@ -6,20 +6,20 @@
   <g transform="translate(150, 150)">
     <circle cx="0" cy="0" r="30" fill="#ffcccc" stroke="#ff6666" stroke-width="2"/>
     <text x="0" y="5" font-family="Arial" font-size="14" text-anchor="middle" fill="#cc0000">·OH</text>
-    <text x="0" y="-40" font-family="Arial" font-size="14" text-anchor="middle" fill="#cc0000">自由基</text>
+    <text x="0" y="-40" font-family="Arial" font-size="14" text-anchor="middle" fill="#cc0000">Free Radical</text>
   </g>
   
   <!-- Antioxidant -->
   <g transform="translate(400, 180)">
     <circle cx="0" cy="0" r="35" fill="#ccffcc" stroke="#66cc66" stroke-width="2"/>
     <text x="0" y="5" font-family="Arial" font-size="14" text-anchor="middle" fill="#006600">H₂</text>
-    <text x="0" y="-50" font-family="Arial" font-size="14" text-anchor="middle" fill="#006600">抗氧化剂</text>
+    <text x="0" y="-50" font-family="Arial" font-size="14" text-anchor="middle" fill="#006600">Antioxidant</text>
   </g>
   
   <!-- Arrow -->
   <g transform="translate(250, 165)">
     <line x1="0" y1="0" x2="100" y2="0" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
-    <text x="50" y="-10" font-family="Arial" font-size="12" text-anchor="middle" fill="#666">中和</text>
+    <text x="50" y="-10" font-family="Arial" font-size="12" text-anchor="middle" fill="#666">Neutralize</text>
   </g>
   
   <!-- Arrowhead marker -->
@@ -33,9 +33,9 @@
   <g transform="translate(500, 150)">
     <circle cx="0" cy="0" r="30" fill="#e6e6e6" stroke="#999999" stroke-width="2"/>
     <text x="0" y="5" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">H₂O</text>
-    <text x="0" y="-40" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">无害物质</text>
+    <text x="0" y="-40" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Harmless Substance</text>
   </g>
   
   <!-- Title -->
-  <text x="300" y="50" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">抗氧化作用机制</text>
+  <text x="300" y="50" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Antioxidant Mechanism</text>
 </svg>
