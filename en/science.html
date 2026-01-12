@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science - Kangen Water</title>
+  
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#e6f7ff',
+              100: '#bae7ff',
+              200: '#91d5ff',
+              300: '#69c0ff',
+              400: '#40a9ff',
+              500: '#1890ff',
+              600: '#096dd9',
+              700: '#0050b3',
+              800: '#003a8c',
+              900: '#002766',
+            },
+            secondary: {
+              50: '#e6fffb',
+              100: '#b5f5ec',
+              200: '#87e8de',
+              300: '#5cdbd3',
+              400: '#36cfc9',
+              500: '#13c2c2',
+              600: '#08979c',
+              700: '#006d75',
+              800: '#00474f',
+              900: '#002329',
+            },
+            accent: {
+              50: '#f0f5ff',
+              100: '#d6e4ff',
+              200: '#adc6ff',
+              300: '#85a5ff',
+              400: '#597ef7',
+              500: '#2f54eb',
+              600: '#1d39c4',
+              700: '#10239e',
+              800: '#061178',
+              900: '#030852',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-[#F3E8D8] text-gray-900">
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2">
+        <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">Kangen Water</span>
+      </a>
+      
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Home</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Water Types</a>
+        <a href="science.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors">Science</a>
+        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Machines</a>
+        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Ukon</a>
+        <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">About Us</a>
+        <a href="contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Contact</a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-primary-500 transition-colors">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Home</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Water Types</a>
+        <a href="science.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors py-2">Science</a>
+        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Machines</a>
+        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Ukon</a>
+        <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">About Us</a>
+        <a href="contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="relative bg-gradient-to-r from-accent-600 to-accent-700 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-[url('imgs/water_background.svg')] opacity-10"></div>
+    <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">The Science of Kangen Water</h1>
+        <p class="text-xl opacity-90">Explore the scientific principles and research behind ionized water.</p>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#F3E8D8] to-transparent"></div>
+  </section>
+
+  <!-- Science Overview -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Understanding <span class="bg-gradient-to-r from-accent-500 to-accent-600 text-transparent bg-clip-text">Kangen Water Science</span></h2>
+      <p class="text-lg text-gray-700 mb-8">Kangen Water is alkaline ionized water produced through electrolysis. It possesses three main properties: Alkaline pH, Negative Oxidation-Reduction Potential (ORP), and Micro-clustered structure. These properties are the foundation of its potential health benefits.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-4 mx-auto">
+            <i class="fas fa-flask-vial text-2xl text-primary-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">Electrolysis</h3>
+          <p class="text-gray-700">Enagic machines separate water into alkaline and acidic streams via electrolysis, simultaneously generating molecular hydrogen.</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-full bg-secondary-100 flex items-center justify-center mb-4 mx-auto">
+            <i class="fas fa-atom text-2xl text-secondary-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">Molecular Hydrogen</h3>
+          <p class="text-gray-700">Molecular Hydrogen (H₂) is studied as a selective antioxidant, with research suggesting potential benefits for oxidative stress.</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-full bg-accent-100 flex items-center justify-center mb-4 mx-auto">
+            <i class="fas fa-microscope text-2xl text-accent-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">Current Research</h3>
+          <p class="text-gray-700">Research on ionized water is ongoing. While promising, further clinical studies are being conducted to fully understand its scope.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free Radicals & Antioxidants -->
+  <section class="bg-gradient-to-r from-gray-100 to-gray-200 py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center">Free Radicals & <span class="bg-gradient-to-r from-primary-500 to-primary-600 text-transparent bg-clip-text">Antioxidants</span></h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div class="order-2 md:order-1">
+            <h3 class="text-2xl font-bold mb-6">What are Free Radicals?</h3>
+            <p class="text-lg text-gray-700 mb-6">Free radicals are unstable atoms or molecules with unpaired electrons. They can cause damage to cells, proteins, and DNA. Sources include normal metabolism, pollution, UV radiation, and stress.</p>
+            
+            <h4 class="text-xl font-bold mb-4">Impact of Free Radicals</h4>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-red-500 mt-1.5 mr-2"></i>
+                <span>Damage to cell membranes and DNA</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-red-500 mt-1.5 mr-2"></i>
+                <span>Accelerated aging process</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-red-500 mt-1.5 mr-2"></i>
+                <span>Linked to chronic diseases</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-red-500 mt-1.5 mr-2"></i>
+                <span>Causes oxidative stress</span>
+              </li>
+            </ul>
+            
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+              <h4 class="font-bold text-gray-800 mb-2">Oxidative Stress</h4>
+              <p class="text-gray-600">Occurs when there's an imbalance between free radicals and antioxidants in your body, leading to potential tissue damage.</p>
+            </div>
+          </div>
+          
+          <div class="order-1 md:order-2">
+            <h3 class="text-2xl font-bold mb-6">The Role of Antioxidants</h3>
+            <p class="text-lg text-gray-700 mb-6">Antioxidants are molecules that neutralize free radicals by donating an electron, effectively stabilizing them and preventing cellular damage.</p>
+            
+            <h4 class="text-xl font-bold mb-4">Types of Antioxidants</h4>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-green-500 mt-1.5 mr-2"></i>
+                <span>Endogenous (Produced by body)</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-green-500 mt-1.5 mr-2"></i>
+                <span>Exogenous (From food/supplements)</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-green-500 mt-1.5 mr-2"></i>
+                <span>Molecular Hydrogen (Selective Antioxidant)</span>
+              </li>
+            </ul>
+            
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+              <h4 class="font-bold text-gray-800 mb-2">Uniqueness of H₂</h4>
+              <p class="text-gray-600">Molecular Hydrogen (H₂) is a selective antioxidant that targets harmful hydroxyl radicals without interfering with beneficial signaling molecules.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Molecular Hydrogen Detail -->
+  <section class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-12 text-center">Molecular Hydrogen as an <span class="bg-gradient-to-r from-secondary-500 to-secondary-600 text-transparent bg-clip-text">Antioxidant</span></h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+      <div>
+        <img src="imgs/hydrogen_molecule.svg" alt="Hydrogen Molecule" class="w-full rounded-xl shadow-lg mb-6">
+        <img src="imgs/antioxidant_mechanism.svg" alt="Antioxidant Mechanism" class="w-full rounded-xl shadow-lg">
+      </div>
+      
+      <div>
+        <h3 class="text-2xl font-bold mb-6">Mechanism of Action</h3>
+        <p class="text-lg text-gray-700 mb-6">Molecular Hydrogen (H₂) is the smallest antioxidant molecule, allowing it to penetrate cell membranes and the blood-brain barrier to reach the nucleus and mitochondria.</p>
+        
+        <div class="bg-white rounded-xl p-6 shadow-lg mb-8">
+          <h4 class="text-xl font-bold mb-4">Advantages of H₂</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-secondary-100 flex items-center justify-center mr-3 mt-1">
+                <i class="fas fa-check text-secondary-600"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-800">Selective Scavenging</h5>
+                <p class="text-gray-600">Neutralizes toxic hydroxyl radicals (·OH) specifically.</p>
+              </div>
+            </li>
+            
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-secondary-100 flex items-center justify-center mr-3 mt-1">
+                <i class="fas fa-check text-secondary-600"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-800">High Permeability</h5>
+                <p class="text-gray-600">Diffuses rapidly into tissues and cells due to small size.</p>
+              </div>
+            </li>
+            
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-secondary-100 flex items-center justify-center mr-3 mt-1">
+                <i class="fas fa-check text-secondary-600"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-800">No Side Effects</h5>
+                <p class="text-gray-600">Converts radicals into water (H₂O), leaving no toxic byproducts.</p>
+              </div>
+            </li>
+            
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-secondary-100 flex items-center justify-center mr-3 mt-1">
+                <i class="fas fa-check text-secondary-600"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-800">Gene Expression</h5>
+                <p class="text-gray-600">May regulate antioxidant gene expression (e.g., Nrf2 pathway).</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <p class="text-lg text-gray-700">Drinking hydrogen-rich Kangen Water delivers this powerful antioxidant directly to your body.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Progress -->
+  <section class="bg-gradient-to-r from-accent-50 to-accent-100 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">Research <span class="bg-gradient-to-r from-accent-500 to-accent-600 text-transparent bg-clip-text">Highlights</span></h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <!-- Anti-inflammatory -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-fire-flame-simple text-2xl text-red-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">Anti-Inflammatory</h3>
+          <p class="text-gray-700 mb-6">Studies suggest molecular hydrogen may exhibit anti-inflammatory effects by downregulating pro-inflammatory cytokines.</p>
+          
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h4 class="font-bold text-gray-800 mb-2">Findings</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-accent-500 mt-1.5 mr-2"></i>
+                <span>Potential inhibition of NF-κB signaling</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-accent-500 mt-1.5 mr-2"></i>
+                <span>Reduction in TNF-α and IL-6</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Metabolic Health -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-heart-pulse text-2xl text-green-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">Metabolic Health</h3>
+          <p class="text-gray-700 mb-6">Research explores H₂'s impact on glucose and lipid metabolism, suggesting potential support for metabolic balance.</p>
+          
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h4 class="font-bold text-gray-800 mb-2">Findings</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-accent-500 mt-1.5 mr-2"></i>
+                <span>May improve insulin sensitivity</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-accent-500 mt-1.5 mr-2"></i>
+                <span>Potential benefits for lipid profiles</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Athletic Performance -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-person-running text-2xl text-blue-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">Athletic Performance</h3>
+          <p class="text-gray-700 mb-6">Hydrogen water is being investigated for its ability to reduce muscle fatigue and improve recovery in athletes.</p>
+          
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h4 class="font-bold text-gray-800 mb-2">Findings</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-accent-500 mt-1.5 mr-2"></i>
+                <span>Reduced exercise-induced oxidative stress</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-accent-500 mt-1.5 mr-2"></i>
+                <span>Less lactic acid accumulation</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Neuroprotection -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-brain text-2xl text-purple-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">Neuroprotection</h3>
+          <p class="text-gray-700 mb-6">Studies indicate H₂ may have neuroprotective effects, potentially benefitting brain health.</p>
+          
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h4 class="font-bold text-gray-800 mb-2">Findings</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-accent-500 mt-1.5 mr-2"></i>
+                <span>May reduce neuronal oxidative stress</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-circle text-xs text-accent-500 mt-1.5 mr-2"></i>
+                <span>Potential application in neurodegenerative models</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="text-center text-gray-500">
+        <p>&copy; 2023 Kangen Water. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JS -->
+  <script src="main.js"></script>
+</body>
+</html>
