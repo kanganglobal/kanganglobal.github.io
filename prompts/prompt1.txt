@@ -1,0 +1,10 @@
+参考cn folder，做一个对应的英文版，放在en folder
+参考截图screen.png 的style，背景色用 RBG 243, 232, 216。 
+
+包含6个部分：
+关于各种水的介绍 - 翻译到英文
+科学研究 - 翻译到英文
+About kangan water machine - 参考 about-kangan-water.txt，穿插images里面machine相关的图片
+姜黄产品 - 参考 ukon.txt, 穿插images里面的ukon相关图片
+About us
+Contact
