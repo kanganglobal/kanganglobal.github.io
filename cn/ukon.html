@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>姜黄素 (Ukon) - Kangen Water</title>
+  
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- 自定义样式 -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="../images/android-chrome-192x192.png">
+  
+  <!-- Tailwind 配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#e6f7ff',
+              100: '#bae7ff',
+              200: '#91d5ff',
+              300: '#69c0ff',
+              400: '#40a9ff',
+              500: '#1890ff',
+              600: '#096dd9',
+              700: '#0050b3',
+              800: '#003a8c',
+              900: '#002766',
+            },
+            secondary: {
+              50: '#e6fffb',
+              100: '#b5f5ec',
+              200: '#87e8de',
+              300: '#5cdbd3',
+              400: '#36cfc9',
+              500: '#13c2c2',
+              600: '#08979c',
+              700: '#006d75',
+              800: '#00474f',
+              900: '#002329',
+            },
+            accent: {
+              50: '#f0f5ff',
+              100: '#d6e4ff',
+              200: '#adc6ff',
+              300: '#85a5ff',
+              400: '#597ef7',
+              500: '#2f54eb',
+              600: '#1d39c4',
+              700: '#10239e',
+              800: '#061178',
+              900: '#030852',
+            },
+            ukon: {
+              100: '#FFF9C4',
+              500: '#FBC02D',
+              900: '#F57F17',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-[#F3E8D8] text-gray-900">
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2">
+        <img src="../images/logo_mobile_us.svg" alt="Kangen Water Logo" class="h-10 w-auto">
+      </a>
+      
+      <!-- 桌面导航 -->
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">首页</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">水的类型</a>
+        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">科学研究</a>
+        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">产品展示</a>
+        <a href="ukon.html" class="font-medium text-ukon-900 hover:text-ukon-500 transition-colors">姜黄素 (Ukon)</a>
+        <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">关于我们</a>
+        <a href="contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">联系我们</a>
+        <a href="../ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">English</a>
+      </div>
+      
+      <!-- 移动端菜单按钮 -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-primary-500 transition-colors">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端菜单 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">首页</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">水的类型</a>
+        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">科学研究</a>
+        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">产品展示</a>
+        <a href="ukon.html" class="font-medium text-ukon-900 hover:text-ukon-500 transition-colors py-2">姜黄素 (Ukon)</a>
+        <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">关于我们</a>
+        <a href="contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">联系我们</a>
+        <a href="../ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">English</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 页面标题 -->
+  <section class="relative bg-gray-900 text-white overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="../images/ukon-powde-bowl.avif" alt="Background" class="w-full h-full object-cover opacity-40">
+      <div class="absolute inset-0 bg-gradient-to-r from-ukon-500/30 to-ukon-900/30"></div>
+    </div>
+    <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Enagic Kangen Ukon</h1>
+        <p class="text-xl opacity-90">利用来自冲绳的野生姜黄的力量</p>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#F3E8D8] to-transparent"></div>
+  </section>
+
+  <!-- 关于 Ukon -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-bold mb-6 text-ukon-900">关于 Ukon</h2>
+        <p class="text-lg text-gray-700 mb-6">我们产品的核心在于 Ukon（姜黄）的非凡力量。姜黄在传统医学中被颂扬了几个世纪，是整体健康的基石。</p>
+        <p class="text-lg text-gray-700 mb-6">我们的 Ukon 源自纯净的环境并精心培育，是目前最纯净、最有效的姜黄形式。</p>
+        
+        <div class="rounded-xl p-6 shadow-lg border-l-4 border-ukon-500 bg-white">
+          <h4 class="text-xl font-bold mb-2 text-ukon-900">为什么选择 Ukon？</h4>
+          <p class="text-gray-600">富含强大的抗氧化剂、抗炎特性和支持整体健康、消化和免疫力的天然化合物。</p>
+        </div>
+      </div>
+      
+      <div>
+        <img src="../images/ukon-powder-pot.avif" alt="Ukon 粉末" class="w-full rounded-2xl shadow-xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- Kangen Ukon 茶 -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="order-2 md:order-1">
+          <img src="../images/ukon-tea.avif" alt="Kangen Ukon 茶" class="w-full rounded-2xl shadow-xl">
+        </div>
+        
+        <div class="order-1 md:order-2">
+          <h2 class="text-3xl font-bold mb-6 text-ukon-900">Kangen Ukon 茶</h2>
+          <p class="text-lg text-gray-700 mb-6">由 100% 纯野生姜黄 (Ukon) 制成的优质草本茶，培育于日本冲绳纯净的田野中。</p>
+          <p class="text-lg text-gray-700 mb-6">富含姜黄素，这是一种以其强大的抗氧化和抗炎特性而闻名的天然化合物。它支持消化，增强免疫力，并促进整体健康。</p>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+             <div class="flex items-start">
+               <i class="fas fa-leaf text-ukon-500 mt-1 mr-3"></i>
+               <div>
+                 <h5 class="font-bold">野生姜黄</h5>
+                 <p class="text-sm text-gray-600">富含来自冲绳的姜黄素。</p>
+               </div>
+             </div>
+             <div class="flex items-start">
+               <i class="fas fa-droplet text-ukon-500 mt-1 mr-3"></i>
+               <div>
+                 <h5 class="font-bold">姜黄精油</h5>
+                 <p class="text-sm text-gray-600">增强功效和香气。</p>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kangen Ukon 补充剂 -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-bold mb-6 text-ukon-900">Kangen Ukon 补充剂</h2>
+        <p class="text-lg text-gray-700 mb-6">探索 Kangen Ukon 补充剂的变革力量。我们的首选配方结合了 Ukon 茶的舒缓功效和必需精油。</p>
+        <p class="text-lg text-gray-700 mb-6">这种卓越的补充剂不仅促进整体健康，还有助于获得更好的睡眠。通过我们精心调配的混合物，自然地提升您的健康水平。</p>
+        
+        <h3 class="text-xl font-bold mb-4 text-gray-800">关键成分</h3>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center">
+            <i class="fas fa-check-circle text-ukon-500 mr-2"></i>
+            <span>来自冲绳的野生姜黄 (Ukon)</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-check-circle text-ukon-500 mr-2"></i>
+            <span>纯天然精油（橄榄油、紫苏油）</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-check-circle text-ukon-500 mr-2"></i>
+            <span>生育三烯酚（维生素 E）</span>
+          </li>
+        </ul>
+        
+        <div class="p-4 rounded-lg border border-yellow-200 bg-white">
+          <h4 class="font-bold text-ukon-900 mb-1">使用方法</h4>
+          <p class="text-sm text-gray-700">每日随水服用五粒胶囊，最好在餐后服用。建议坚持服用。</p>
+        </div>
+      </div>
+      
+      <div>
+        <img src="../images/ukon-tea-pack.avif" alt="Ukon 补充剂" class="w-full rounded-2xl shadow-xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="footer-col">
+          <h3 class="text-xl font-bold mb-4">Kangen Water</h3>
+          <p class="text-gray-400">探索 Enagic 还原水的世界，体验健康生活方式。</p>
+        </div>
+        <div class="footer-col">
+          <h3 class="text-lg font-bold mb-4">快速链接</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+            <li><a href="water-types.html" class="text-gray-400 hover:text-white transition-colors">水的类型</a></li>
+            <li><a href="science.html" class="text-gray-400 hover:text-white transition-colors">科学研究</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">产品展示</a></li>
+            <li><a href="ukon.html" class="text-gray-400 hover:text-white transition-colors">姜黄素 (Ukon)</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="text-lg font-bold mb-4">资源</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">常见问题</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">使用指南</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">研究文献</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="text-lg font-bold mb-4">联系我们</h3>
+          <ul class="space-y-2">
+            <li class="text-gray-400"><i class="fas fa-phone mr-2"></i> +61420892876</li>
+            <li class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 15/33 Waterloo Rd, Macquarie Park, NSW 2113</li>
+          </ul>
+          <div class="mt-4 flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+        <p>&copy; 2023 Kangen Water. 保留所有权利。</p>
+        <p class="mt-2">创作者: @TonyKing</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 自定义 JS -->
+  <script src="main.js"></script>
+</body>
+</html>

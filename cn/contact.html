@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Kangen Water</title>
+  <title>联系我们 - Kangan Water</title>
   
   <!-- TailwindCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -15,11 +15,11 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Custom Styles -->
+  <!-- 自定义样式 -->
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" href="../images/android-chrome-192x192.png">
   
-  <!-- Tailwind Config -->
+  <!-- Tailwind 配置 -->
   <script>
     tailwind.config = {
       theme: {
@@ -72,66 +72,66 @@
   </script>
 </head>
 <body class="bg-[#f3e8d8] text-gray-900">
-  <!-- Navigation -->
+  <!-- 导航栏 -->
   <nav class="sticky top-0 z-50 bg-white shadow-md">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <a href="index.html" class="flex items-center space-x-2">
-        <img src="images/logo_mobile_us.svg" alt="Kangen Water Logo" class="h-10 w-auto">
+        <img src="../images/logo_mobile_us.svg" alt="Kangen Water Logo" class="h-10 w-auto">
       </a>
       
-      <!-- Desktop Menu -->
+      <!-- 桌面菜单 -->
       <div class="hidden md:flex space-x-8">
-        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Home</a>
-        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Water Types</a>
-        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Science</a>
-        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Products</a>
-        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">Ukon</a>
-        <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">About Us</a>
-        <a href="contact.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors">Contact</a>
-        <a href="cn/contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">中文</a>
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">首页</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">水的类型</a>
+        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">科学研究</a>
+        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">产品展示</a>
+        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">姜黄素 (Ukon)</a>
+        <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">关于我们</a>
+        <a href="contact.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors">联系我们</a>
+        <a href="../contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">English</a>
       </div>
       
-      <!-- Mobile Menu Button -->
+      <!-- 移动端菜单按钮 -->
       <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-primary-500 transition-colors">
         <i class="fas fa-bars text-xl"></i>
       </button>
     </div>
     
-    <!-- Mobile Menu -->
+    <!-- 移动端菜单 -->
     <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
       <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Home</a>
-        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Water Types</a>
-        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Science</a>
-        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Products</a>
-        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">Ukon</a>
-        <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">About Us</a>
-        <a href="contact.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors py-2">Contact</a>
-        <a href="cn/contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">中文</a>
+        <a href="index.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">首页</a>
+        <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">水的类型</a>
+        <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">科学研究</a>
+        <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">产品展示</a>
+        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">姜黄素 (Ukon)</a>
+        <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">关于我们</a>
+        <a href="contact.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors py-2">联系我们</a>
+        <a href="../contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">English</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- 英雄区 -->
   <section class="bg-gray-900 text-white py-16 md:py-24 overflow-hidden relative">
     <div class="container mx-auto px-4 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
-          <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Contact <span class="text-primary-400">Us</span></h1>
-          <p class="text-xl opacity-90 mb-8">Ready to transform your health? Get in touch with our wellness experts today. We are dedicated to providing global support for your Kangen Water journey.</p>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">联系 <span class="text-primary-400">我们</span></h1>
+          <p class="text-xl opacity-90 mb-8">准备好改变您的健康了吗？立即联系我们的健康专家。我们致力于为您提供 Kangen Water 之旅的全球支持。</p>
           <div class="flex items-center space-x-4">
             <div class="flex -space-x-2">
               <div class="w-10 h-10 rounded-full border-2 border-gray-900 bg-primary-500 flex items-center justify-center text-xs font-bold">JD</div>
               <div class="w-10 h-10 rounded-full border-2 border-gray-900 bg-secondary-500 flex items-center justify-center text-xs font-bold">AS</div>
               <div class="w-10 h-10 rounded-full border-2 border-gray-900 bg-accent-500 flex items-center justify-center text-xs font-bold">MK</div>
             </div>
-            <p class="text-sm opacity-80">Our experts are online to help you</p>
+            <p class="text-sm opacity-80">我们的专家在线为您提供帮助</p>
           </div>
         </div>
         <div class="relative">
           <div class="absolute -inset-4 bg-primary-500/20 blur-3xl rounded-full"></div>
           <div class="relative z-10 bg-gray-800 p-4 rounded-2xl shadow-2xl transform hover:rotate-2 transition-transform duration-500">
-            <img src="images/global.png" alt="Global Support" class="w-full h-auto rounded-xl">
+            <img src="../images/global.png" alt="全球支持" class="w-full h-auto rounded-xl">
           </div>
         </div>
       </div>
@@ -139,96 +139,96 @@
     <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#f3e8d8] to-transparent"></div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- 联系部分 -->
   <section class="container mx-auto px-4 py-16">
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
         
-        <!-- Contact Form -->
-        <div class="rounded-xl shadow-lg p-8">
-          <h2 class="text-2xl font-bold mb-6 text-gray-800">Get Your Kangen Machine</h2>
-          <p class="text-gray-600 mb-8">Fill out the form below and we will contact you to discuss the perfect solution for your needs.</p>
+        <!-- 联系表单 -->
+        <div class="rounded-xl shadow-lg p-8 bg-white">
+          <h2 class="text-2xl font-bold mb-6 text-gray-800">获取您的还原水机</h2>
+          <p class="text-gray-600 mb-8">填写下表，我们将与您联系，讨论满足您需求的完美解决方案。</p>
           
           <form id="contactForm" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">名字 *</label>
                 <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors">
               </div>
               <div>
-                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">姓氏 *</label>
                 <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors">
               </div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">电子邮箱 *</label>
                 <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors">
               </div>
               <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">电话号码 *</label>
                 <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors">
               </div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">I'm Interested In:</label>
+                <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">我感兴趣的是：</label>
                 <select id="interest" name="interest" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors bg-white">
-                  <option value="">Select an option</option>
-                  <option value="kangen-machine">Kangen Water Machine</option>
-                  <option value="ukon-supplements">Ukon Supplements</option>
-                  <option value="business">Business Opportunity</option>
-                  <option value="consultation">Health Consultation</option>
-                  <option value="other">Other</option>
+                  <option value="">选择一个选项</option>
+                  <option value="kangen-machine">还原水机 (Kangen Water Machine)</option>
+                  <option value="ukon-supplements">姜黄素补充剂 (Ukon Supplements)</option>
+                  <option value="business">商业机会</option>
+                  <option value="consultation">健康咨询</option>
+                  <option value="other">其他</option>
                 </select>
               </div>
               <div>
-                <label for="budget" class="block text-sm font-medium text-gray-700 mb-1">Budget Range:</label>
+                <label for="budget" class="block text-sm font-medium text-gray-700 mb-1">预算范围：</label>
                 <select id="budget" name="budget" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors bg-white">
-                  <option value="">Select budget range</option>
-                  <option value="under-1000">Under $1,000</option>
+                  <option value="">选择预算范围</option>
+                  <option value="under-1000">$1,000 以下</option>
                   <option value="1000-3000">$1,000 - $3,000</option>
                   <option value="3000-5000">$3,000 - $5,000</option>
-                  <option value="over-5000">Over $5,000</option>
+                  <option value="over-5000">$5,000 以上</option>
                 </select>
               </div>
             </div>
             
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Contact Method:</label>
+              <label class="block text-sm font-medium text-gray-700 mb-2">首选联系方式：</label>
               <div class="flex space-x-6">
                 <label class="flex items-center space-x-2 cursor-pointer">
                   <input type="radio" name="preferredContact" value="phone" checked class="text-primary-600 focus:ring-primary-500 h-4 w-4">
-                  <span class="text-gray-700">Phone Call</span>
+                  <span class="text-gray-700">电话</span>
                 </label>
                 <label class="flex items-center space-x-2 cursor-pointer">
                   <input type="radio" name="preferredContact" value="email" class="text-primary-600 focus:ring-primary-500 h-4 w-4">
-                  <span class="text-gray-700">Email</span>
+                  <span class="text-gray-700">电子邮箱</span>
                 </label>
                 <label class="flex items-center space-x-2 cursor-pointer">
                   <input type="radio" name="preferredContact" value="text" class="text-primary-600 focus:ring-primary-500 h-4 w-4">
-                  <span class="text-gray-700">Text Message</span>
+                  <span class="text-gray-700">短信</span>
                 </label>
               </div>
             </div>
             
             <div>
-              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">留言</label>
               <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"></textarea>
             </div>
             
             <button type="submit" class="w-full bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold py-3 px-6 rounded-lg hover:from-primary-700 hover:to-secondary-700 transition-all transform hover:-translate-y-0.5 shadow-lg">
-              Send Message
+              发送消息
             </button>
           </form>
         </div>
         
-        <!-- Contact Info & FAQ -->
+        <!-- 联系信息 & FAQ -->
         <div class="space-y-8">
-          <div class="rounded-xl shadow-lg p-8">
-            <h3 class="text-xl font-bold mb-6 text-gray-800">Contact Information</h3>
+          <div class="rounded-xl shadow-lg p-8 bg-white">
+            <h3 class="text-xl font-bold mb-6 text-gray-800">联系信息</h3>
             <ul class="space-y-6">
               
               <li class="flex items-start">
@@ -236,9 +236,9 @@
                   <i class="fas fa-phone-alt text-primary-600"></i>
                 </div>
                 <div>
-                  <h4 class="font-bold text-gray-800 mb-1">Call Us</h4>
+                  <h4 class="font-bold text-gray-800 mb-1">致电我们</h4>
                   <p class="text-gray-600">+61420892876</p>
-                  <p class="text-sm text-gray-500 mt-1">Mon-Fri: 9am - 6pm EST</p>
+                  <p class="text-sm text-gray-500 mt-1">周一至周五: 9am - 6pm EST</p>
                 </div>
               </li>
               
@@ -247,7 +247,7 @@
                   <i class="fas fa-map-marker-alt text-primary-600"></i>
                 </div>
                 <div>
-                  <h4 class="font-bold text-gray-800 mb-1">Location</h4>
+                  <h4 class="font-bold text-gray-800 mb-1">地址</h4>
                   <p class="text-gray-600">15/33 Waterloo Rd</p>
                   <p class="text-gray-600">Macquarie Park, NSW 2113</p>
                 </div>
@@ -258,14 +258,14 @@
                       <i class="fas fa-qrcode text-primary-600"></i>
                   </div>
                   <div>
-                      <h4 class="font-bold text-gray-800 mb-1">Connect with us</h4>
+                      <h4 class="font-bold text-gray-800 mb-1">关注我们</h4>
                       <div class="flex space-x-4 mt-2">
                           <div class="text-center">
-                              <img src="images/wechat-qr.jpg" alt="WeChat QR Code" class="w-24 h-24 object-contain border rounded-lg shadow-sm">
-                              <p class="text-xs text-gray-500 mt-1">WeChat</p>
+                              <img src="../images/wechat-qr.jpg" alt="微信二维码" class="w-24 h-24 object-contain border rounded-lg shadow-sm">
+                              <p class="text-xs text-gray-500 mt-1">微信</p>
                           </div>
                           <div class="text-center">
-                              <img src="images/whatsapp-qr.jpg" alt="WhatsApp QR Code" class="w-24 h-24 object-contain border rounded-lg shadow-sm">
+                              <img src="../images/whatsapp-qr.jpg" alt="WhatsApp 二维码" class="w-24 h-24 object-contain border rounded-lg shadow-sm">
                               <p class="text-xs text-gray-500 mt-1">WhatsApp</p>
                           </div>
                       </div>
@@ -274,24 +274,24 @@
             </ul>
           </div>
           
-          <div class="rounded-xl shadow-lg p-8">
-            <h3 class="text-xl font-bold mb-6 text-gray-800">Why Choose Kangan?</h3>
+          <div class="rounded-xl shadow-lg p-8 bg-white">
+            <h3 class="text-xl font-bold mb-6 text-gray-800">为什么选择 Kangen？</h3>
             <ul class="space-y-4">
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-secondary-500 mt-1 mr-3"></i>
-                <span class="text-gray-700">45+ Years of Proven History</span>
+                <span class="text-gray-700">超过 45 年的可靠历史</span>
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-secondary-500 mt-1 mr-3"></i>
-                <span class="text-gray-700">Medical Grade Certification (Japan)</span>
+                <span class="text-gray-700">日本医疗级认证</span>
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-secondary-500 mt-1 mr-3"></i>
-                <span class="text-gray-700">5-Year Warranty on Machines</span>
+                <span class="text-gray-700">设备享有 5 年保修</span>
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-secondary-500 mt-1 mr-3"></i>
-                <span class="text-gray-700">Global Support Network</span>
+                <span class="text-gray-700">全球支持网络</span>
               </li>
             </ul>
           </div>
@@ -299,6 +299,55 @@
       </div>
     </div>
   </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="footer-col">
+          <h3 class="text-xl font-bold mb-4">Kangen Water</h3>
+          <p class="text-gray-400">探索 Enagic 还原水的世界，体验健康生活方式。</p>
+        </div>
+        <div class="footer-col">
+          <h3 class="text-lg font-bold mb-4">快速链接</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+            <li><a href="water-types.html" class="text-gray-400 hover:text-white transition-colors">水的类型</a></li>
+            <li><a href="science.html" class="text-gray-400 hover:text-white transition-colors">科学研究</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">产品展示</a></li>
+            <li><a href="ukon.html" class="text-gray-400 hover:text-white transition-colors">姜黄素 (Ukon)</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="text-lg font-bold mb-4">资源</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">常见问题</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">使用指南</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">研究文献</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="text-lg font-bold mb-4">联系我们</h3>
+          <ul class="space-y-2">
+            <li class="text-gray-400"><i class="fas fa-phone mr-2"></i> +61420892876</li>
+            <li class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 15/33 Waterloo Rd, Macquarie Park, NSW 2113</li>
+          </ul>
+          <div class="mt-4 flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+        <p>&copy; 2023 Kangen Water. 保留所有权利。</p>
+        <p class="mt-2">创作者: @TonyKing</p>
+      </div>
+    </div>
+  </footer>
 
   <script src="main.js"></script>
 </body>
