@@ -321,50 +321,75 @@
 
   <!-- Comparison Table -->
   <section class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-12 text-center">Spec <span class="bg-gradient-to-r from-primary-500 to-primary-600 text-transparent bg-clip-text">Comparison</span></h2>
-    
-    <div class="max-w-6xl mx-auto overflow-x-auto">
-      <table class="w-full bg-white rounded-xl shadow-lg">
-        <thead>
-          <tr class="bg-gray-800 text-white">
-            <th class="py-4 px-6 text-left">Feature</th>
-            <th class="py-4 px-6 text-center">K8</th>
-            <th class="py-4 px-6 text-center">SD501</th>
-            <th class="py-4 px-6 text-center">SD501 Platinum</th>
-            <th class="py-4 px-6 text-center">JRII</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-gray-200">
-            <td class="py-4 px-6 font-medium">Plates</td>
-            <td class="py-4 px-6 text-center">8</td>
-            <td class="py-4 px-6 text-center">7</td>
-            <td class="py-4 px-6 text-center">7</td>
-            <td class="py-4 px-6 text-center">5</td>
-          </tr>
-          <tr class="border-b border-gray-200 bg-gray-50">
-            <td class="py-4 px-6 font-medium">Water Types</td>
-            <td class="py-4 px-6 text-center">5</td>
-            <td class="py-4 px-6 text-center">5</td>
-            <td class="py-4 px-6 text-center">5</td>
-            <td class="py-4 px-6 text-center">4</td>
-          </tr>
-          <tr class="border-b border-gray-200">
-            <td class="py-4 px-6 font-medium">pH Range</td>
-            <td class="py-4 px-6 text-center">2.5-11.5</td>
-            <td class="py-4 px-6 text-center">2.5-11.5</td>
-            <td class="py-4 px-6 text-center">2.5-11.5</td>
-            <td class="py-4 px-6 text-center">2.5-11.0</td>
-          </tr>
-          <tr class="border-b border-gray-200 bg-gray-50">
-            <td class="py-4 px-6 font-medium">ORP Range</td>
-            <td class="py-4 px-6 text-center">+1130 to -800</td>
-            <td class="py-4 px-6 text-center">+1100 to -750</td>
-            <td class="py-4 px-6 text-center">+1100 to -750</td>
-            <td class="py-4 px-6 text-center">+1000 to -450</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="md:col-span-2 overflow-x-auto">
+        <h2 class="text-3xl font-bold mb-8">Spec <span class="bg-gradient-to-r from-primary-500 to-primary-600 text-transparent bg-clip-text">Comparison</span></h2>
+        <table class="w-full bg-white rounded-xl shadow-lg">
+          <thead>
+            <tr class="bg-gray-800 text-white">
+              <th class="py-4 px-6 text-left">Feature</th>
+              <th class="py-4 px-6 text-center">K8</th>
+              <th class="py-4 px-6 text-center">SD501</th>
+              <th class="py-4 px-6 text-center">SD501 Platinum</th>
+              <th class="py-4 px-6 text-center">JRII</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200">
+              <td class="py-4 px-6 font-medium">Plates</td>
+              <td class="py-4 px-6 text-center">8</td>
+              <td class="py-4 px-6 text-center">7</td>
+              <td class="py-4 px-6 text-center">7</td>
+              <td class="py-4 px-6 text-center">5</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="py-4 px-6 font-medium">Water Types</td>
+              <td class="py-4 px-6 text-center">5</td>
+              <td class="py-4 px-6 text-center">5</td>
+              <td class="py-4 px-6 text-center">5</td>
+              <td class="py-4 px-6 text-center">4</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-4 px-6 font-medium">pH Range</td>
+              <td class="py-4 px-6 text-center">2.5-11.5</td>
+              <td class="py-4 px-6 text-center">2.5-11.5</td>
+              <td class="py-4 px-6 text-center">2.5-11.5</td>
+              <td class="py-4 px-6 text-center">2.5-11.0</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="py-4 px-6 font-medium">ORP Range</td>
+              <td class="py-4 px-6 text-center">+1130 to -800</td>
+              <td class="py-4 px-6 text-center">+1100 to -750</td>
+              <td class="py-4 px-6 text-center">+1100 to -750</td>
+              <td class="py-4 px-6 text-center">+1000 to -450</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="md:col-span-1">
+        <div class="rounded-xl shadow-lg p-8 bg-white sticky top-24">
+          <h3 class="text-xl font-bold mb-6 text-gray-800">Why Choose Kangan?</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-secondary-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">45+ Years of Proven History</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-secondary-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">Medical Grade Certification (Japan)</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-secondary-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">5-Year Warranty on Machines</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-secondary-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">Global Support Network</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
