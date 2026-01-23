@@ -71,7 +71,7 @@
     }
   </script>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-[#F3E8D8] text-gray-900">
   <!-- 导航栏 -->
   <nav class="sticky top-0 z-50 bg-white shadow-md">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -85,7 +85,9 @@
         <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">水的类型</a>
         <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">科学研究</a>
         <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">产品展示</a>
+        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">姜黄素 (Ukon)</a>
         <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">关于我们</a>
+        <a href="contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">联系我们</a>
       </div>
       
       <!-- 移动端菜单按钮 -->
@@ -101,14 +103,19 @@
         <a href="water-types.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">水的类型</a>
         <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">科学研究</a>
         <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">产品展示</a>
+        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">姜黄素 (Ukon)</a>
         <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">关于我们</a>
+        <a href="contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">联系我们</a>
       </div>
     </div>
   </nav>
 
   <!-- 英雄区 -->
-  <section class="relative bg-gradient-to-r from-primary-600 to-secondary-600 text-white overflow-hidden">
-    <div class="absolute inset-0 bg-[url('imgs/water_background.svg')] opacity-10"></div>
+  <section class="relative bg-gray-900 text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="../images/water-43.gif" alt="Background" class="w-full h-full object-cover opacity-40">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#F3E8D8]/20 to-[#F3E8D8]"></div>
+    </div>
     <div class="container mx-auto px-4 py-20 md:py-32 relative z-10">
       <div class="max-w-3xl mx-auto text-center">
         <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">探索 Enagic 还原水的奇妙世界</h1>
@@ -119,7 +126,7 @@
         </div>
       </div>
     </div>
-    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#F3E8D8] to-transparent"></div>
   </section>
 
   <!-- 便当盒网格布局 -->
@@ -128,56 +135,75 @@
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- 大卡片 - 什么是还原水 -->
-      <div class="bento-card md:col-span-2 md:row-span-2 bg-gradient-to-br from-primary-50 to-primary-100 p-8 rounded-3xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <div class="bento-card md:col-span-2 md:row-span-2 p-8 rounded-3xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
         <h3 class="text-2xl font-bold mb-4 text-primary-800">什么是还原水？</h3>
         <p class="text-gray-700 mb-6">Kangan Water（还原水）是通过电解过程产生的碱性电解水，由Enagic公司的水机生成。这种水具有三个主要特性：</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div class="bg-white p-4 rounded-xl shadow">
+          <div class="p-4 rounded-xl shadow">
             <i class="fas fa-tint text-2xl text-primary-500 mb-2"></i>
             <h4 class="font-bold text-lg mb-1">碱性</h4>
             <p class="text-sm text-gray-600">pH值在8.5-9.5之间，有助于平衡体内酸碱度</p>
           </div>
-          <div class="bg-white p-4 rounded-xl shadow">
+          <div class="p-4 rounded-xl shadow">
             <i class="fas fa-bolt text-2xl text-secondary-500 mb-2"></i>
             <h4 class="font-bold text-lg mb-1">抗氧化</h4>
             <p class="text-sm text-gray-600">具有负ORP值，可以中和自由基</p>
           </div>
-          <div class="bg-white p-4 rounded-xl shadow">
+          <div class="p-4 rounded-xl shadow">
             <i class="fas fa-atom text-2xl text-accent-500 mb-2"></i>
             <h4 class="font-bold text-lg mb-1">小分子团</h4>
             <p class="text-sm text-gray-600">水分子结构更小，更容易被人体吸收</p>
           </div>
         </div>
-        <img src="imgs/enagic_homepage.svg" alt="Enagic还原水" class="w-full h-48 object-cover rounded-xl">
+        <img src="../images/header-img-02.jpg" alt="Enagic还原水" class="w-full h-64 object-cover rounded-xl">
       </div>
       
       <!-- 小卡片 - 水的类型 -->
-      <div class="bento-card bg-gradient-to-br from-secondary-50 to-secondary-100 p-6 rounded-3xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <div class="bento-card p-6 rounded-3xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-right">
         <h3 class="text-xl font-bold mb-3 text-secondary-800">多种功能水</h3>
         <p class="text-gray-700 mb-4">Enagic水机可以生成多种不同pH值的功能水，满足饮用、烹饪、清洁和美容等各种需求。</p>
-        <img src="imgs/water_types.svg" alt="水的类型" class="w-full h-32 object-cover rounded-xl">
+        <div class="relative">
+          <img src="../images/Clean-Water.webp" alt="水类型对比" class="w-full h-32 object-cover rounded-xl shadow-lg">
+          <div class="absolute -top-6 -right-6 bg-white p-6 rounded-xl shadow-xl hidden md:block">
+            <i class="fas fa-tint text-primary-500"></i>
+          </div>
+        </div>
         <a href="water-types.html" class="inline-block mt-4 text-secondary-600 hover:text-secondary-500 font-medium">
           了解更多 <i class="fas fa-arrow-right ml-1"></i>
         </a>
       </div>
       
       <!-- 小卡片 - 科学研究 -->
-      <div class="bento-card bg-gradient-to-br from-accent-50 to-accent-100 p-6 rounded-3xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <div class="bento-card p-6 rounded-3xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
         <h3 class="text-xl font-bold mb-3 text-accent-800">科学原理</h3>
         <p class="text-gray-700 mb-4">了解分子氢作为抗氧化剂的作用机制，以及富氢水对健康的潜在益处。</p>
-        <img src="imgs/hydrogen_molecule.svg" alt="分子氢" class="w-full h-32 object-cover rounded-xl">
+        <div class="w-full h-32 rounded-xl bg-gradient-to-br from-accent-50 to-accent-100 flex items-center justify-center">
+          <i class="fas fa-microscope text-4xl text-accent-500"></i>
+        </div>
         <a href="science.html" class="inline-block mt-4 text-accent-600 hover:text-accent-500 font-medium">
           探索科学 <i class="fas fa-arrow-right ml-1"></i>
         </a>
       </div>
       
       <!-- 小卡片 - 产品展示 -->
-      <div class="bento-card bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-3xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <div class="bento-card p-6 rounded-3xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
         <h3 class="text-xl font-bold mb-3 text-gray-800">Enagic产品</h3>
         <p class="text-gray-700 mb-4">探索Enagic公司的高品质还原水机产品线，包括旗舰型号K8和其他系列。</p>
-        <img src="imgs/k8_product.svg" alt="K8产品" class="w-full h-32 object-cover rounded-xl">
+        <img src="../images/k8-on-bench.avif" alt="K8产品" class="w-full h-32 object-cover rounded-xl">
         <a href="products.html" class="inline-block mt-4 text-gray-600 hover:text-gray-500 font-medium">
           查看产品 <i class="fas fa-arrow-right ml-1"></i>
+        </a>
+      </div>
+
+      <!-- 小卡片 - Ukon (新) -->
+      <div class="bento-card p-6 rounded-3xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <h3 class="text-xl font-bold mb-3 text-yellow-800">姜黄素 (Ukon)</h3>
+        <p class="text-gray-700 mb-4">利用来自冲绳的野生姜黄的力量，实现全方位健康。</p>
+        <div class="w-full h-32 rounded-xl flex items-center justify-center text-yellow-600">
+          <img src="../images/ukon-tea.avif" alt="Ukon产品" class="w-full h-32 object-cover rounded-xl">
+        </div>
+        <a href="ukon.html" class="inline-block mt-4 text-yellow-600 hover:text-yellow-500 font-medium">
+          探索 Ukon <i class="fas fa-arrow-right ml-1"></i>
         </a>
       </div>
     </div>
@@ -231,13 +257,43 @@
         </ul>
       </div>
       <div class="feature-image">
-        <img src="imgs/antioxidant_mechanism.svg" alt="抗氧化机制" class="w-full rounded-xl shadow-lg">
+        <div class="relative" data-aos="fade-left">
+          <img src="../images/k8-on-bench.avif" alt="抗氧化机制" class="w-full rounded-xl shadow-lg">
+          <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl hidden md:block">
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-shield-alt text-primary-600"></i>
+              </div>
+              <div>
+                <div class="text-sm text-gray-500">抗氧化值</div>
+                <div class="font-bold text-primary-600">-800mV ORP</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mt-20">
       <div class="feature-image order-2 md:order-1">
-        <img src="imgs/water_comparison.svg" alt="水类型对比" class="w-full rounded-xl shadow-lg">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="p-6 bg-white rounded-2xl shadow-md border-t-4 border-secondary-500">
+            <div class="text-2xl font-bold text-secondary-600 mb-1">pH 8.5-9.5</div>
+            <div class="text-sm text-gray-500">还原水</div>
+          </div>
+          <div class="p-6 bg-white rounded-2xl shadow-md border-t-4 border-accent-500">
+            <div class="text-2xl font-bold text-accent-600 mb-1">pH 5.5-6.0</div>
+            <div class="text-sm text-gray-500">美容水</div>
+          </div>
+          <div class="p-6 bg-white rounded-2xl shadow-md border-t-4 border-red-500">
+            <div class="text-2xl font-bold text-red-600 mb-1">pH 2.5</div>
+            <div class="text-sm text-gray-500">强酸性水</div>
+          </div>
+          <div class="p-6 bg-white rounded-2xl shadow-md border-t-4 border-green-500">
+            <div class="text-2xl font-bold text-green-600 mb-1">pH 7.0</div>
+            <div class="text-sm text-gray-500">清洁水</div>
+          </div>
+        </div>
       </div>
       <div class="feature-content order-1 md:order-2">
         <h3 class="text-2xl font-bold mb-4 text-gray-800">多功能水系统</h3>
@@ -291,7 +347,9 @@
             <li><a href="water-types.html" class="text-gray-400 hover:text-white transition-colors">水的类型</a></li>
             <li><a href="science.html" class="text-gray-400 hover:text-white transition-colors">科学研究</a></li>
             <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">产品展示</a></li>
+            <li><a href="ukon.html" class="text-gray-400 hover:text-white transition-colors">姜黄素 (Ukon)</a></li>
             <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
           </ul>
         </div>
         <div class="footer-col">

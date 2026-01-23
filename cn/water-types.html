@@ -71,7 +71,7 @@
     }
   </script>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-[#F3E8D8] text-gray-900">
   <!-- 导航栏 -->
   <nav class="sticky top-0 z-50 bg-white shadow-md">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -85,7 +85,9 @@
         <a href="water-types.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors">水的类型</a>
         <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">科学研究</a>
         <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">产品展示</a>
+        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">姜黄素 (Ukon)</a>
         <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">关于我们</a>
+        <a href="contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors">联系我们</a>
       </div>
       
       <!-- 移动端菜单按钮 -->
@@ -101,32 +103,37 @@
         <a href="water-types.html" class="font-medium text-primary-600 hover:text-primary-500 transition-colors py-2">水的类型</a>
         <a href="science.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">科学研究</a>
         <a href="products.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">产品展示</a>
+        <a href="ukon.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">姜黄素 (Ukon)</a>
         <a href="about.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">关于我们</a>
+        <a href="contact.html" class="font-medium text-gray-600 hover:text-primary-500 transition-colors py-2">联系我们</a>
       </div>
     </div>
   </nav>
 
   <!-- 页面标题 -->
-  <section class="relative bg-gradient-to-r from-secondary-600 to-secondary-700 text-white overflow-hidden">
-    <div class="absolute inset-0 bg-[url('imgs/water_background.svg')] opacity-10"></div>
+  <section class="relative bg-gray-900 text-white overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="../images/water-43.gif" alt="Background" class="w-full h-full object-cover opacity-40">
+      <div class="absolute inset-0 bg-gradient-to-r from-secondary-600/30 to-secondary-700/30"></div>
+    </div>
     <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
       <div class="max-w-3xl mx-auto text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">探索不同类型的水</h1>
-        <p class="text-xl opacity-90">了解Enagic水机生成的多种功能水及其特点和用途</p>
+        <p class="text-xl opacity-90">了解 Enagic 水机生成的多种功能水及其特点和用途</p>
       </div>
     </div>
-    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#F3E8D8] to-transparent"></div>
   </section>
 
   <!-- 水类型概述 -->
   <section class="container mx-auto px-4 py-16">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-8 text-center">Enagic水机：<span class="bg-gradient-to-r from-secondary-500 to-secondary-600 text-transparent bg-clip-text">一机多用</span></h2>
-      <p class="text-lg text-gray-700 mb-8 text-center">Enagic水机通过电解过程可以生成多种不同pH值的功能水，满足饮用、烹饪、清洁和美容等各种需求。</p>
+      <h2 class="text-3xl font-bold mb-8 text-center">Enagic 水机：<span class="bg-gradient-to-r from-secondary-500 to-secondary-600 text-transparent bg-clip-text">一机多用</span></h2>
+      <p class="text-lg text-gray-700 mb-8 text-center">Enagic 水机通过电解过程可以生成多种不同 pH 值的功能水，满足饮用、烹饪、清洁和美容等各种需求。</p>
       
-      <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 mb-12">
-        <img src="imgs/water_comparison.svg" alt="水类型对比" class="w-full h-auto rounded-xl mb-6">
-        <p class="text-gray-600 text-center">Enagic水机可以生成多种不同pH值的功能水，满足不同需求</p>
+      <div class="rounded-2xl shadow-lg p-6 md:p-8 mb-12">
+        <img src="../images/water_comparison.svg" alt="水类型对比" class="w-full h-auto rounded-xl mb-6">
+        <p class="text-gray-600 text-center">Enagic 水机可以生成多种不同 pH 值的功能水，满足不同需求</p>
       </div>
     </div>
   </section>
@@ -135,7 +142,7 @@
   <section class="container mx-auto px-4 py-8 md:py-16">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
       <!-- 自来水 -->
-      <div class="water-type-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <div class="water-type-card rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
         <div class="flex items-center mb-6">
           <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mr-4">
             <i class="fas fa-faucet text-2xl text-blue-500"></i>
@@ -146,25 +153,21 @@
         <ul class="space-y-2 mb-6">
           <li class="flex items-start">
             <i class="fas fa-circle text-xs text-blue-500 mt-1.5 mr-2"></i>
-            <span>pH值通常在6.5-8.5之间</span>
+            <span>pH 值通常在 6.5-8.5 之间</span>
           </li>
           <li class="flex items-start">
             <i class="fas fa-circle text-xs text-blue-500 mt-1.5 mr-2"></i>
             <span>含有氯和其他消毒剂</span>
           </li>
-          <li class="flex items-start">
-            <i class="fas fa-circle text-xs text-blue-500 mt-1.5 mr-2"></i>
-            <span>可能含有重金属和其他污染物</span>
-          </li>
         </ul>
-        <div class="bg-white rounded-xl p-4 shadow-sm">
-          <h4 class="font-bold text-gray-800 mb-2">与Kangan Water对比</h4>
-          <p class="text-gray-600">自来水经过Enagic水机处理后，可以去除氯和其他有害物质，同时保留有益矿物质。</p>
+        <div class="rounded-xl p-4 shadow-sm">
+          <h4 class="font-bold text-gray-800 mb-2">与 Kangen Water 对比</h4>
+          <p class="text-gray-600">自来水经过 Enagic 水机处理后，可以去除氯和其他有害物质，同时保留有益矿物质。</p>
         </div>
       </div>
       
       <!-- 纯净水 -->
-      <div class="water-type-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <div class="water-type-card rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
         <div class="flex items-center mb-6">
           <div class="w-16 h-16 rounded-full bg-blue-200 flex items-center justify-center mr-4">
             <i class="fas fa-tint text-2xl text-blue-600"></i>
@@ -175,395 +178,132 @@
         <ul class="space-y-2 mb-6">
           <li class="flex items-start">
             <i class="fas fa-circle text-xs text-blue-600 mt-1.5 mr-2"></i>
-            <span>pH值接近7.0（中性）</span>
+            <span>pH 值接近 7.0（中性）</span>
           </li>
           <li class="flex items-start">
             <i class="fas fa-circle text-xs text-blue-600 mt-1.5 mr-2"></i>
             <span>几乎不含矿物质和杂质</span>
           </li>
-          <li class="flex items-start">
-            <i class="fas fa-circle text-xs text-blue-600 mt-1.5 mr-2"></i>
-            <span>缺乏人体所需的矿物质</span>
-          </li>
         </ul>
-        <div class="bg-white rounded-xl p-4 shadow-sm">
-          <h4 class="font-bold text-gray-800 mb-2">与Kangan Water对比</h4>
-          <p class="text-gray-600">与纯净水不同，Kangan Water保留了有益矿物质，同时具有碱性和抗氧化特性。</p>
+        <div class="rounded-xl p-4 shadow-sm">
+          <h4 class="font-bold text-gray-800 mb-2">与 Kangen Water 对比</h4>
+          <p class="text-gray-600">与纯净水不同，Kangen Water 保留了有益矿物质，同时具有碱性和抗氧化特性。</p>
         </div>
       </div>
       
-      <!-- 矿泉水 -->
-      <div class="water-type-card bg-gradient-to-br from-green-50 to-green-100 rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <div class="flex items-center mb-6">
-          <div class="w-16 h-16 rounded-full bg-green-200 flex items-center justify-center mr-4">
-            <i class="fas fa-mountain text-2xl text-green-600"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-800">矿泉水</h3>
-        </div>
-        <p class="text-gray-700 mb-4">矿泉水来自地下水源，富含天然矿物质和微量元素。</p>
-        <ul class="space-y-2 mb-6">
-          <li class="flex items-start">
-            <i class="fas fa-circle text-xs text-green-600 mt-1.5 mr-2"></i>
-            <span>pH值因水源而异，通常为6.5-8.0</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-circle text-xs text-green-600 mt-1.5 mr-2"></i>
-            <span>富含钙、镁、钾等矿物质</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-circle text-xs text-green-600 mt-1.5 mr-2"></i>
-            <span>来自受保护的地下水源</span>
-          </li>
-        </ul>
-        <div class="bg-white rounded-xl p-4 shadow-sm">
-          <h4 class="font-bold text-gray-800 mb-2">与Kangan Water对比</h4>
-          <p class="text-gray-600">Kangan Water与矿泉水类似，都含有矿物质，但Kangan Water通过电解过程获得更强的抗氧化特性。</p>
-        </div>
-      </div>
-      
-      <!-- 酸性消毒水 -->
-      <div class="water-type-card bg-gradient-to-br from-red-50 to-red-100 rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <!-- 强酸性水 -->
+      <div class="water-type-card rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
         <div class="flex items-center mb-6">
           <div class="w-16 h-16 rounded-full bg-red-200 flex items-center justify-center mr-4">
             <i class="fas fa-spray-can-sparkles text-2xl text-red-600"></i>
           </div>
-          <h3 class="text-2xl font-bold text-gray-800">酸性消毒水</h3>
+          <h3 class="text-2xl font-bold text-gray-800">强酸性水</h3>
         </div>
-        <p class="text-gray-700 mb-4">强酸性水是Enagic水机生成的一种功能水，具有强大的消毒和杀菌能力。</p>
+        <p class="text-gray-700 mb-4">强酸性水是 Enagic 水机生成的一种功能水，具有强大的消毒和杀菌能力。</p>
         <ul class="space-y-2 mb-6">
           <li class="flex items-start">
             <i class="fas fa-circle text-xs text-red-600 mt-1.5 mr-2"></i>
-            <span>pH值约为2.5（强酸性）</span>
+            <span>pH 值约为 2.5（强酸性）</span>
           </li>
           <li class="flex items-start">
             <i class="fas fa-circle text-xs text-red-600 mt-1.5 mr-2"></i>
             <span>具有强大的杀菌和消毒能力</span>
           </li>
-          <li class="flex items-start">
-            <i class="fas fa-circle text-xs text-red-600 mt-1.5 mr-2"></i>
-            <span>可用于清洁厨房、浴室和表面消毒</span>
-          </li>
         </ul>
-        <div class="bg-white rounded-xl p-4 shadow-sm">
+        <div class="rounded-xl p-4 shadow-sm">
           <h4 class="font-bold text-gray-800 mb-2">主要用途</h4>
-          <p class="text-gray-600">用于消毒厨房用具、表面清洁、杀菌和去除农药残留。在日本医院也用于消毒。</p>
+          <p class="text-gray-600">用于消毒厨房用具、表面清洁、杀菌和去除农药残留。</p>
         </div>
       </div>
       
       <!-- 碱性饮用水 -->
-      <div class="water-type-card bg-gradient-to-br from-primary-50 to-primary-100 rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <div class="water-type-card rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
         <div class="flex items-center mb-6">
           <div class="w-16 h-16 rounded-full bg-primary-200 flex items-center justify-center mr-4">
             <i class="fas fa-glass-water text-2xl text-primary-600"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-800">碱性饮用水</h3>
         </div>
-        <p class="text-gray-700 mb-4">碱性饮用水是Kangan Water的核心产品，具有碱性pH值和抗氧化特性。</p>
+        <p class="text-gray-700 mb-4">碱性饮用水是 Kangen Water 的核心产品，具有碱性 pH 值和抗氧化特性。</p>
         <ul class="space-y-2 mb-6">
           <li class="flex items-start">
             <i class="fas fa-circle text-xs text-primary-600 mt-1.5 mr-2"></i>
-            <span>pH值在8.5-9.5之间（碱性）</span>
+            <span>pH 值在 8.5-9.5 之间（碱性）</span>
           </li>
           <li class="flex items-start">
             <i class="fas fa-circle text-xs text-primary-600 mt-1.5 mr-2"></i>
-            <span>负氧化还原电位(ORP)值，具有抗氧化特性</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-circle text-xs text-primary-600 mt-1.5 mr-2"></i>
-            <span>水分子结构更小，更容易被人体吸收</span>
+            <span>负氧化还原电位 (ORP) 值，具有抗氧化特性</span>
           </li>
         </ul>
-        <div class="bg-white rounded-xl p-4 shadow-sm">
+        <div class="rounded-xl p-4 shadow-sm">
           <h4 class="font-bold text-gray-800 mb-2">主要用途</h4>
           <p class="text-gray-600">日常饮用、烹饪、冲泡咖啡和茶、浇花植物，以及为宠物提供饮用水。</p>
         </div>
       </div>
       
-      <!-- 富氢水 -->
-      <div class="water-type-card bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <div class="flex items-center mb-6">
-          <div class="w-16 h-16 rounded-full bg-secondary-200 flex items-center justify-center mr-4">
-            <i class="fas fa-atom text-2xl text-secondary-600"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-800">富氢水</h3>
-        </div>
-        <p class="text-gray-700 mb-4">富氢水含有溶解的分子氢(H₂)，是Kangan Water的一个重要特性。</p>
-        <ul class="space-y-2 mb-6">
-          <li class="flex items-start">
-            <i class="fas fa-circle text-xs text-secondary-600 mt-1.5 mr-2"></i>
-            <span>含有溶解的分子氢(H₂)</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-circle text-xs text-secondary-600 mt-1.5 mr-2"></i>
-            <span>具有选择性抗氧化特性</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-circle text-xs text-secondary-600 mt-1.5 mr-2"></i>
-            <span>可能有助于减轻氧化应激</span>
-          </li>
-        </ul>
-        <div class="bg-white rounded-xl p-4 shadow-sm">
-          <h4 class="font-bold text-gray-800 mb-2">科学研究</h4>
-          <p class="text-gray-600">分子氢作为抗氧化剂的研究正在进行中，初步研究表明它可能具有多种健康益处。</p>
-        </div>
-      </div>
-      
       <!-- 美容水 -->
-      <div class="water-type-card bg-gradient-to-br from-pink-50 to-pink-100 rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <div class="water-type-card rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
         <div class="flex items-center mb-6">
           <div class="w-16 h-16 rounded-full bg-pink-200 flex items-center justify-center mr-4">
             <i class="fas fa-spa text-2xl text-pink-600"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-800">美容水</h3>
         </div>
-        <p class="text-gray-700 mb-4">美容水是Enagic水机生成的弱酸性水，pH值接近皮肤的自然pH值。</p>
+        <p class="text-gray-700 mb-4">美容水是 Enagic 水机生成的弱酸性水，pH 值接近皮肤的自然 pH 值。</p>
         <ul class="space-y-2 mb-6">
           <li class="flex items-start">
             <i class="fas fa-circle text-xs text-pink-600 mt-1.5 mr-2"></i>
-            <span>pH值在5.5-6.0之间（弱酸性）</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-circle text-xs text-pink-600 mt-1.5 mr-2"></i>
-            <span>接近皮肤和头发的自然pH值</span>
+            <span>pH 值在 5.5-6.0 之间（弱酸性）</span>
           </li>
           <li class="flex items-start">
             <i class="fas fa-circle text-xs text-pink-600 mt-1.5 mr-2"></i>
             <span>具有收敛和紧致效果</span>
           </li>
         </ul>
-        <div class="bg-white rounded-xl p-4 shadow-sm">
+        <div class="rounded-xl p-4 shadow-sm">
           <h4 class="font-bold text-gray-800 mb-2">主要用途</h4>
-          <p class="text-gray-600">用于面部清洁、爽肤、洗发、护发和皮肤护理，可以帮助收缩毛孔和紧致皮肤。</p>
+          <p class="text-gray-600">用于面部清洁、爽肤、洗发、护发和皮肤护理。</p>
         </div>
       </div>
       
       <!-- 中性水 -->
-      <div class="water-type-card bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <div class="water-type-card rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
         <div class="flex items-center mb-6">
           <div class="w-16 h-16 rounded-full bg-yellow-200 flex items-center justify-center mr-4">
             <i class="fas fa-balance-scale text-2xl text-yellow-600"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-800">中性水</h3>
         </div>
-        <p class="text-gray-700 mb-4">中性水是Enagic水机生成的pH值接近7.0的水，不含氯和其他有害物质。</p>
+        <p class="text-gray-700 mb-4">中性水是 Enagic 水机生成的 pH 值接近 7.0 的水，不含氯和其他有害物质。</p>
         <ul class="space-y-2 mb-6">
           <li class="flex items-start">
             <i class="fas fa-circle text-xs text-yellow-600 mt-1.5 mr-2"></i>
-            <span>pH值接近7.0（中性）</span>
+            <span>pH 值接近 7.0（中性）</span>
           </li>
           <li class="flex items-start">
             <i class="fas fa-circle text-xs text-yellow-600 mt-1.5 mr-2"></i>
             <span>经过过滤，不含氯和其他有害物质</span>
           </li>
-          <li class="flex items-start">
-            <i class="fas fa-circle text-xs text-yellow-600 mt-1.5 mr-2"></i>
-            <span>保留有益矿物质</span>
-          </li>
         </ul>
-        <div class="bg-white rounded-xl p-4 shadow-sm">
+        <div class="rounded-xl p-4 shadow-sm">
           <h4 class="font-bold text-gray-800 mb-2">主要用途</h4>
-          <p class="text-gray-600">用于服药、婴儿配方奶粉、烹饪敏感食材和照顾婴儿。</p>
+          <p class="text-gray-600">用于服药和婴儿配方奶粉。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- pH值比较 -->
-  <section class="bg-gradient-to-r from-secondary-50 to-secondary-100 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-12 text-center">pH值<span class="bg-gradient-to-r from-secondary-500 to-secondary-600 text-transparent bg-clip-text">比较</span></h2>
-      
-      <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-        <div class="relative h-16 mb-8">
-          <!-- pH刻度 -->
-          <div class="absolute inset-x-0 h-4 bg-gradient-to-r from-red-500 via-yellow-400 to-blue-500 rounded-full"></div>
-          
-          <!-- pH值标记 -->
-          <div class="absolute top-6 left-0 transform -translate-x-1/2 text-center">
-            <div class="w-1 h-4 bg-gray-800 mx-auto mb-1"></div>
-            <span class="text-sm font-medium">0</span>
-          </div>
-          
-          <div class="absolute top-6 left-1/4 transform -translate-x-1/2 text-center">
-            <div class="w-1 h-4 bg-gray-800 mx-auto mb-1"></div>
-            <span class="text-sm font-medium">3.5</span>
-          </div>
-          
-          <div class="absolute top-6 left-1/2 transform -translate-x-1/2 text-center">
-            <div class="w-1 h-4 bg-gray-800 mx-auto mb-1"></div>
-            <span class="text-sm font-medium">7</span>
-          </div>
-          
-          <div class="absolute top-6 left-3/4 transform -translate-x-1/2 text-center">
-            <div class="w-1 h-4 bg-gray-800 mx-auto mb-1"></div>
-            <span class="text-sm font-medium">10.5</span>
-          </div>
-          
-          <div class="absolute top-6 right-0 transform translate-x-1/2 text-center">
-            <div class="w-1 h-4 bg-gray-800 mx-auto mb-1"></div>
-            <span class="text-sm font-medium">14</span>
-          </div>
-        </div>
-        
-        <!-- 水类型标记 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="flex items-center">
-            <div class="w-4 h-4 rounded-full bg-red-500 mr-3"></div>
-            <div>
-              <span class="font-medium">强酸性水 (pH 2.5)</span>
-              <p class="text-sm text-gray-600">消毒和杀菌</p>
-            </div>
-          </div>
-          
-          <div class="flex items-center">
-            <div class="w-4 h-4 rounded-full bg-pink-400 mr-3"></div>
-            <div>
-              <span class="font-medium">美容水 (pH 5.5-6.0)</span>
-              <p class="text-sm text-gray-600">皮肤和头发护理</p>
-            </div>
-          </div>
-          
-          <div class="flex items-center">
-            <div class="w-4 h-4 rounded-full bg-yellow-400 mr-3"></div>
-            <div>
-              <span class="font-medium">中性水 (pH 7.0)</span>
-              <p class="text-sm text-gray-600">服药和婴儿配方奶粉</p>
-            </div>
-          </div>
-          
-          <div class="flex items-center">
-            <div class="w-4 h-4 rounded-full bg-blue-400 mr-3"></div>
-            <div>
-              <span class="font-medium">碱性饮用水 (pH 8.5-9.5)</span>
-              <p class="text-sm text-gray-600">日常饮用和烹饪</p>
-            </div>
-          </div>
-          
-          <div class="flex items-center">
-            <div class="w-4 h-4 rounded-full bg-blue-600 mr-3"></div>
-            <div>
-              <span class="font-medium">强碱性水 (pH 11.0)</span>
-              <p class="text-sm text-gray-600">去除油脂和清洁</p>
-            </div>
-          </div>
-          
-          <div class="flex items-center">
-            <div class="w-4 h-4 rounded-full bg-gray-400 mr-3"></div>
-            <div>
-              <span class="font-medium">自来水 (pH 6.5-8.5)</span>
-              <p class="text-sm text-gray-600">市政供水</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 使用建议 -->
-  <section class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-12 text-center">水的<span class="bg-gradient-to-r from-primary-500 to-primary-600 text-transparent bg-clip-text">使用建议</span></h2>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <!-- 饮用水建议 -->
-      <div class="bg-white rounded-2xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 mx-auto">
-          <i class="fas fa-glass-water text-2xl text-primary-600"></i>
-        </div>
-        <h3 class="text-xl font-bold mb-4 text-center">饮用水建议</h3>
-        <ul class="space-y-3">
-          <li class="flex items-start">
-            <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
-            <span>从低pH值的碱性水(8.5)开始，逐渐适应</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
-            <span>每天饮用6-8杯碱性水</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
-            <span>早晨空腹饮用一杯碱性水</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
-            <span>服药时使用中性水</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
-            <span>运动前后饮用碱性水补充水分</span>
-          </li>
-        </ul>
-      </div>
-      
-      <!-- 烹饪建议 -->
-      <div class="bg-white rounded-2xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <div class="w-16 h-16 rounded-full bg-secondary-100 flex items-center justify-center mb-6 mx-auto">
-          <i class="fas fa-utensils text-2xl text-secondary-600"></i>
-        </div>
-        <h3 class="text-xl font-bold mb-4 text-center">烹饪建议</h3>
-        <ul class="space-y-3">
-          <li class="flex items-start">
-            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
-            <span>用碱性水浸泡蔬果，去除农药残留</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
-            <span>用碱性水煮饭，使米饭更加蓬松可口</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
-            <span>用碱性水煮咖啡和茶，减少苦涩味</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
-            <span>用中性水烹饪敏感食材</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-secondary-500 mt-1 mr-2"></i>
-            <span>用碱性水煮汤，提取更多食材风味</span>
-          </li>
-        </ul>
-      </div>
-      
-      <!-- 清洁和美容建议 -->
-      <div class="bg-white rounded-2xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <div class="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center mb-6 mx-auto">
-          <i class="fas fa-spray-can-sparkles text-2xl text-pink-600"></i>
-        </div>
-        <h3 class="text-xl font-bold mb-4 text-center">清洁和美容建议</h3>
-        <ul class="space-y-3">
-          <li class="flex items-start">
-            <i class="fas fa-check text-pink-500 mt-1 mr-2"></i>
-            <span>用美容水洁面和爽肤</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-pink-500 mt-1 mr-2"></i>
-            <span>用美容水洗发和护发</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-pink-500 mt-1 mr-2"></i>
-            <span>用强酸性水消毒厨房和浴室</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-pink-500 mt-1 mr-2"></i>
-            <span>用强碱性水去除油脂和顽固污渍</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-pink-500 mt-1 mr-2"></i>
-            <span>用美容水制作面膜和护肤喷雾</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 号召行动区 -->
-  <section class="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-16">
+  <!-- pH Scale Section (Simplified) -->
+  <section class="py-16">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">体验Kangan Water的多种功能</h2>
-      <p class="text-xl max-w-2xl mx-auto mb-8 opacity-90">一台Enagic水机，满足饮用、烹饪、清洁和美容的多种需求。</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="products.html" class="btn-white">查看产品</a>
-        <a href="science.html" class="btn-outline-white">了解科学原理</a>
+      <h2 class="text-3xl font-bold mb-12">pH 值刻度比较</h2>
+      <div class="max-w-4xl mx-auto rounded-2xl shadow-lg p-8">
+        <div class="h-8 bg-gradient-to-r from-red-500 via-green-400 to-blue-500 rounded-full w-full mb-4"></div>
+        <div class="flex justify-between text-sm font-bold text-gray-600">
+           <span>酸性 (pH 2.5)</span>
+           <span>中性 (pH 7.0)</span>
+           <span>碱性 (pH 9.5)</span>
+        </div>
       </div>
     </div>
   </section>
@@ -573,8 +313,8 @@
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="footer-col">
-          <h3 class="text-xl font-bold mb-4">Kangan Water</h3>
-          <p class="text-gray-400">探索Enagic还原水的世界，体验健康生活方式。</p>
+          <h3 class="text-xl font-bold mb-4">Kangen Water</h3>
+          <p class="text-gray-400">探索 Enagic 还原水的世界，体验健康生活方式。</p>
         </div>
         <div class="footer-col">
           <h3 class="text-lg font-bold mb-4">快速链接</h3>
@@ -583,7 +323,9 @@
             <li><a href="water-types.html" class="text-gray-400 hover:text-white transition-colors">水的类型</a></li>
             <li><a href="science.html" class="text-gray-400 hover:text-white transition-colors">科学研究</a></li>
             <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">产品展示</a></li>
+            <li><a href="ukon.html" class="text-gray-400 hover:text-white transition-colors">姜黄素 (Ukon)</a></li>
             <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -612,7 +354,7 @@
         </div>
       </div>
       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
-        <p>&copy; 2023 Kangan Water. 保留所有权利。</p>
+        <p>&copy; 2023 Kangen Water. 保留所有权利。</p>
         <p class="mt-2">创作者: @TonyKing</p>
       </div>
     </div>
